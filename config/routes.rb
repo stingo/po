@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'pages#index'
 
+   get '/explore' => 'pages#explore' # override default routes.
+  get '/user/:id' => 'pages#profile'
+  get '/explore' => 'pages#explore'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

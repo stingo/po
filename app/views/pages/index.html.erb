@@ -1,2 +1,142 @@
+<% if !user_signed_in? # if the user is not signed in, render this %>
+    <style>
+        body {
+            background: linear-gradient( /* somewhat transparent film on top of the BG to make it look darker. */
+                rgba(0,0,0, 0.7),
+                rgba(0,0,0, 0.7)
+                ), url("/bg.jpg") no-repeat center center fixed
+            
+            ; /* only display once, center horizontal and vertical, dont let scroll change position. */
+            -webkit-background-size: cover;
+            -moz-background-size: cover; /* cover the whole html element. */
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        h1 {
+            color: white;
+            font-weight: bold;
+        }
+        .container-index {
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+        .text {
+            color: white;
+            font-weight: 300;
+            font-size: 150%;
+        }
+        .footer-links {
+            text-align: center;
+            color: white;
+            margin-top: 30%;
+            font-size: 75%;
+        }
+        .log-in {
+            float: right;
+            width: 300px;
+            height: 150px;
+            margin-top: 7.5%;
+        }
+        .sign-up {
+            float: right;
+            width: 300px;
+            height: 250px;
+        }
+        .log-in-form {
+            margin: 5px;
+        }
+    </style>
+    
+    <div class="container-index row">
+        <div class="col-sm-6">
+            <h1>Welcome to PreachOut.</h1>
+            <p class="text">
+                Connect with your buddies. Chat with new friends.<br>
+                Share your adventures. Have fun! <br>
+                Just like a blog, but with less characters!
+            </p>
+        </div>
+        <div class="col-sm-6">
+                   <div class="log-in panel">
+                    Sign In
+                    </div> 
+                    
+                  
 
-<h2>Welcome!</h2>
+                   <div class="sign-up panel">
+
+                   Sign up
+                   <p></p>
+
+                   <br />
+
+                   <!--Sign up starts-->
+                     
+                            <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+                            
+                            <form class="registration-form" id="contact-form">
+
+
+
+                            <%= f.text_field :dispalyname, :autofocus => true, :placeholder => 'Pick a display name', :class => "form-control input-box" %>
+
+
+
+
+
+
+                             <div class="finline">
+
+                                <%= f.text_field :firstname, :autofocus => true, :placeholder => 'First Name', :class => "form-control input-box " %>
+
+                            </div>
+
+                           
+
+                            <div class="finline">
+
+                                <%= f.text_field :lastname, :autofocus => true, :placeholder => 'Last Name', :class => "form-control input-box " %>
+
+                            </div>
+                       
+                                
+
+                                
+                                <%= f.email_field :email, :autofocus => true, :placeholder => 'Your email address', :class => "form-control input-box " %>
+
+                             
+
+                               
+                                
+                                <%= f.password_field :password, :autocomplete => "off", :autofocus => true, :placeholder => 'Create a password(6 or more characters)', :class => "form-control input-box" %>
+                                <%# f.check_box :remember_me, :autofocus => true, :class => "form-control input-box" %><%# f.label :remember_me %>
+                                <%# f.password_field :password_confirmation, :autocomplete => "off", :autofocus => true, :placeholder => 'Confirm Password', :class => "form-control input-box" %>
+                                <p class="transparent-text">
+                                By clicking Join now, you agree to PreachOut's User Agreement, Privacy Policy, and Cookie Policy.
+                                </p>
+                                
+                                <%= f.submit "Join now", :class => "btn btn-primary" %>
+                                &nbsp<span><%= link_to "Forgot your password?", new_password_path(:user) %></span>
+                                
+                            </form>
+
+                            <% end %>
+
+                            <!--Sign up Ends-->
+
+
+
+                   </div> 
+        </div>
+        
+        <div class="col-sm-12">
+            <p class="footer-links">About  Help  Blog  Status  Jobs  Terms  Privacy  Cookies  Ads  info  Brand  Advertise  Businesses  Media  Developers  Directory © 2016 PreachOut</p>
+        </div>
+        
+    </div>
+
+<% else # if the user IS signed in, render the following %>
+
+    <script>document.location = "/explore"</script>
+
+<% end %>
