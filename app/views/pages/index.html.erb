@@ -1,5 +1,5 @@
 <% if !user_signed_in? # if the user is not signed in, render this %>
-    <style>
+    <!--style>
         body {
             background: linear-gradient( /* somewhat transparent film on top of the BG to make it look darker. */
                 rgba(0,0,0, 0.7),
@@ -49,7 +49,7 @@
     
     <div class="container-index row">
         <div class="col-sm-6">
-            <h1>Welcome to PreachOut.</h1>
+            <h1>Welcome to Flutter.</h1>
             <p class="text">
                 Connect with your buddies. Chat with new friends.<br>
                 Share your adventures. Have fun! <br>
@@ -58,28 +58,87 @@
         </div>
         <div class="col-sm-6">
                    <div class="log-in panel">
-                    Sign In
+                       Log In
                     </div> 
                     
-                  
-
                    <div class="sign-up panel">
+                        Sign Up
+                   </div> 
+        </div>
+        
+        <div class="col-sm-12">
+            <p class="footer-links">About  Help  Blog  Status  Jobs  Terms  Privacy  Cookies  Ads  info  Brand  Advertise  Businesses  Media  Developers  Directory © 2016 Flutter</p>
+        </div>
+        
+    </div-->
 
-                   Sign up
-                   <p></p>
 
-                   <br />
+    
+    <!-- =========================
+     PRE LOADER       
+    ============================== -->
+    <div class="preloader">
+        <div class="status">
+            &nbsp;
+        </div>
+    </div>
 
-                   <!--Sign up starts-->
-                     
+    <!-- =========================
+     SECTION: HOME / HEADER  
+    ============================== -->
+    <header class="header" data-stellar-background-ratio="0.5" id="home">
+
+        <!-- COLOR OVER IMAGE -->
+        <div class="overlay-layer">
+
+            <!-- STICKY NAVIGATION -->
+            
+            <!-- /END STICKY NAVIGATION -->
+
+            <!-- CONTAINER -->
+            <div class="container">
+
+                <!-- ONLY LOGO ON HEADER 
+                      <div class="only-logo">
+                         <div class="navbar">
+                                <div class="navbar-header">
+                                   <img src="images/logo-2.png" alt="">
+                                </div>
+                         </div>
+                      </div>
+                      /END ONLY LOGO ON HEADER -->
+
+                <div class="row">
+                    <div class="col-md-7 text-left">
+
+                        <!-- HEADING AND BUTTONS -->
+                        <div class="intro-section">
+
+                            <!-- WELCOM MESSAGE -->
+                            <h1 class="intro white-text frontsize">How People Share The Inspiration.</h1>
+                            
+                            <p class="transparent-text">PreachOut.com is a cool and fun way of sharing Christian gospel. A community to meet friends in faith, find or share videos, music, and inspirational messages...</p>
+                            
+                            <!-- BUTTON -->
+                            <div class="button hidden-xs">
+                                <a href="#section1" class="btn btn-primary secondary-button">Learn More</a>
+                            </div>
+                            <!-- /END BUTTON -->
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 pull-right">
+                        
+                        <!-- VERTICAL REGISTRATION FORM -->
+                        <div class="vertical-registration-form">
+                            
+                            <h4 class="white-text">PreachOut The Gospel. Get started - it's free.</h4>
+
                             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
                             
                             <form class="registration-form" id="contact-form">
-
-
-
-                            <%= f.text_field :dispalyname, :autofocus => true, :placeholder => 'Pick a display name', :class => "form-control input-box" %>
-
 
 
 
@@ -95,10 +154,22 @@
 
                             <div class="finline">
 
-                                <%= f.text_field :lastname, :autofocus => true, :placeholder => 'Last Name', :class => "form-control input-box " %>
+                                <%= f.text_field :lasttname, :autofocus => true, :placeholder => 'Last Name', :class => "form-control input-box " %>
 
                             </div>
                        
+
+
+
+ 
+
+
+
+                                
+                                <%= f.text_field :dispalyname, :autofocus => true, :placeholder => 'Pick a display name', :class => "form-control input-box" %>
+
+                                
+
                                 
 
                                 
@@ -122,21 +193,408 @@
 
                             <% end %>
 
-                            <!--Sign up Ends-->
+                            
+
+  
 
 
+                            
+                            <!-- FORM SUBMIT SUCCESS / ERROR MESSAGES -->
+                            <p class="email-success dark-text small-text"><span class="icon-check-alt2 colored-text"></span>Email sent seuccessfully</p>
+                            <p class="email-error dark-text small-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                            <!-- MAILCHIMP ALERTS 
+                    <p class="mailchimp-success dark-text"><span class="icon-check-alt2 colored-text"></span>We sent the confirmation to your email</p>
+                    <p class="mailchimp-error dark-text"><span class="icon-close-alt2"></span>Error! Please check all fields filled correctly</p>
+                    -->
+                        </div>
+                    </div>
 
-                   </div> 
+                </div>
+            </div>
         </div>
-        
-        <div class="col-sm-12">
-            <p class="footer-links">About  Help  Blog  Status  Jobs  Terms  Privacy  Cookies  Ads  info  Brand  Advertise  Businesses  Media  Developers  Directory © 2016 PreachOut</p>
-        </div>
-        
+    </header>
+
+    <!-- =========================
+     SECTION: CLIENTS LOGOs
+    ============================== -->
+    <!--div class="clients white-bg">
+        <ul class="client-logos">
+            <li>
+                <img src="images/companies/1.png" alt="">
+            </li>
+            <li>
+                <img src="images/companies/2.png" alt="">
+            </li>
+            <li>
+                <img src="images/companies/3.png" alt="">
+            </li>
+            <li>
+                <img src="images/companies/4.png" alt="">
+            </li>
+            <li>
+                <img src="images/companies/5.png" alt="">
+            </li>
+            <li>
+                <img src="images/companies/6.png" alt="">
+            </li>
+        </ul>
+    </div-->
+
+    <!-- =========================
+     SECTION: SERVICES
+    ============================== -->
+    <section class="services" id="section1">
+        <div class="container">
+
+
+            <div class="col-sm-12">
+
+            <div class="frontsize"><h1><strong>Check out what’s trending for free on PreachOut</strong></h1></div>
+            <br />
+              
+              <div class="panel">
+                <ul class="nav nav-tabs nav-justified" id="demo1-tabs">
+                  <li class="active"><a href="#botabs1" data-toggle="tab">Music & Sermons</a></li>
+                  <li><a href="#botabs2" data-toggle="tab">Preaches</a></li>
+                  <li><a href="#botabs3" data-toggle="tab">Videos</a></li>
+                </ul>
+                <div class="panel-body">
+                  <div class="tab-content">
+<div class="tab-pane fade in active" id="botabs1">
+<p>
+audo
+
+                      </p>
+
+    <h3 class= "centered fontsize"><a href="/audios"> See all ...</a></h3>
+                    </div>
+
+
+
+                    
+    <div class="tab-pane fade" id="botabs2">
+    <p>
+
+
+<!--preaches starts-->
+
+<div class="rowp">
+    <div class="item">
+      <div class="well"> 
+        1 blah blah blah
+      </div>
     </div>
+  <div class="item">
+        <div class="well"> 
+        2 blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
+        </div>
+    </div>
+    <div class="item">
+        <div class="well"> 
+        3 blah blah blah blah blah blah blah blah h
+        </div>
+    </div>
+    <div class="item">
+        <div class="well">
+        blah blah blah blah 
+        </div>
+    </div>
+    <div class="item">
+        <div class="well"> 
+          blah blah blah. The container inside the item must be position:relative
+          blah blah blah. The container inside the item must be position:relative
+          blah blah blah. The container inside the item must be position:relative
+          blah blah blah. The container inside the item must be position:relative
+        </div>
+    </div>
+  <div class="item">
+        <div class="well"> 
+        blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
+        </div>
+    </div>
+    <div class="item">
+        <div class="well">
+        blah blah blah blah blah blah blah blah h
+        </div>
+    </div>
+    <div class="item">
+        <div class="well"> 
+        blah blah blah blah
+        </div>
+    </div>
+    <div class="item">
+        <div class="well"> 
+        blah blah blah blah blah blah blah blah blah blah blah blah
+        </div>
+    </div>
+    <div class="item">
+        <div class="well"> 
+          blah blah blah. The container inside the item must be position:relative
+          blah blah blah. The container inside the item must be position:relative
+        </div>
+    </div>
+</div>
+
+<!--preaches ends-->
+
+
+
+                      </p>
+    <h3 class= "centered fontsize"><a href="/preaches"> See all ...</a></h3>
+                    </div>
+
+                     <div class="tab-pane fade" id="botabs3">
+                      <p>
+                          
+
+
+Video
+
+                      </p>
+      <h3 class= "centered fontsize"><a href="/videos"> See all ...</a></h3>
+                    </div>
+
+
+                  </div><!-- /tab-content -->
+                </div><!-- /panel-body -->
+              </div><!-- /.panel -->
+            </div><!-- /.cols -->
+
+                
+
+           
+        </div>
+
+        
+    </section>
+
+    <!-- =========================
+     SECTION: BRIEF LEFT
+    ============================== -->
+    <section class="services grey-bg" id="section1">
+        <div class="container">
+
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+
+               
+
+            <div class="row">
+
+                <!-- SINGLE SERVICE -->
+
+                <div class="g-group">
+<div class="g-cell g-cell-12-12 text--centered">
+<h3 class="marketing-text-heading-primary">We provide all the tools you need to make your event a success.</h3>
+
+</div>
+</div>
+
+                <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
+
+
+                    <div class="single-service border-bottom-hover pr-reduce20">
+                        <div class="service-icon colored-text">
+                            <span class="icon-basic-webpage-multiple"></span>
+                        </div>
+
+                        <i class="fa fa-user-plus fa-4x" aria-hidden="true"></i>
+<br/>
+
+
+                        <h3 class="colored-text">Simple Layout</h3>
+                        <div class="colored-line">
+                </div>
+                        <p>
+                            Accelerator photo sharing business school drop out ramen hustle crush it revenue traction platforms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SINGLE SERVICE -->
+                <div class="col-md-4 wow flipInY" data-wow-offset="10" data-wow-duration="1s">
+                    <div class="single-service border-bottom-hover">
+                        <div class="service-icon colored-text">
+                            <span class="icon-ecommerce-graph3"></span>
+                        </div>
+                        <h3 class="colored-text">Smart Graphs</h3>
+                        <p>
+                            Coworking viral landing page user base minimum viable product hackathon API mashup FB Connect.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SINGLE SERVICE -->
+                <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
+                    <div class="single-service border-bottom-hover">
+                        <div class="service-icon colored-text">
+                            <span class="icon-basic-geolocalize-05"></span>
+                        </div>
+                        <h3 class="colored-text">Track Location</h3>
+                        <p>
+                            Social bookmarking group buying crowded market pivot onboarding freemium prototype ping.
+                        </p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        
+    </section>
+    <!-- =========================
+     SECTION: SOME STATS   
+    ============================== -->
+    <!--section class="stats" id="section4" data-stellar-background-ratio="0.5">
+        <div class="overlay-layer-2">
+            <div class="container">
+                <div class="row no-gutters">
+
+                  
+                    <div class="col-md-4 col-sm-4 col-xs-4 single-stats wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
+                        <div class="icon-container">
+                            <span class="colored-text icon-basic-elaboration-calendar-check"></span>
+                        </div>
+                        <h4 class="white-text">780+</h4>
+                        <p class="uppercase transparent-text small-text">
+                            Successfull campaigns
+                        </p>
+                    </div>
+
+                 
+                    <div class="col-md-4 col-sm-4 col-xs-4 single-stats border-left-colored border-right-colored wow fadeIn" data-wow-offset="10" data-wow-duration="1.75s">
+                        <div class="icon-container">
+                            <span class="colored-text icon-basic-message-multiple"></span>
+                        </div>
+                        <h4 class="white-text">1250+</h4>
+                        <p class="uppercase transparent-text small-text">
+                            Social interaction
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 col-xs-4 single-stats wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
+                        <div class="icon-container">
+                            <span class="colored-text icon-ecommerce-graph-increase"></span>
+                        </div>
+                        <h4 class="white-text">235%</h4>
+                        <p class="uppercase transparent-text small-text">
+                            Yearly Sales Growth
+                        </p>
+                    </div>
+                </div>
+
+               
+                <div class="stats-footer">
+                    <div class="long-transparent-line">
+                    </div>
+                    <p class="white-text">
+                        We are ready to help you - <a href="#home" class="strong inpage-scroll">Get Started Now »</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section-->
+
+   
+
+    <!-- =========================
+     SECTION: CALL TO ACTION   
+    ============================== -->
+    <section class="call-to-action" id="section11" data-stellar-background-ratio="0.1">
+        <div class="overlay-layer-2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <div class="uppercase colored-text strong">
+                            <h2>There’s more to do on PreachOut</h2>
+                        </div>
+                      
+                      
+
+                        <h1 class="white-text wow fadeInLeft frontsize" data-wow-duration="2s" data-wow-offset="40">Join now for FREE</h1>
+                        <br />
+                        <p></p>
+
+                        <a href="#home" class="btn btn-success mb-1x mr-1x inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Continue</a>
+                        <br />
+                        <p></p>
+
+                        <a href="/users/sign_in" class="btn btn-primary inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Sign In</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- REGISTRATION FORM FOR POPUP BOX -->
+    
+
+    <!-- =========================
+     SECTION: CONTACT INFO  
+    ============================== -->
+    <div class="contact-info white-bg">
+        <div class="container">
+
+           
+        </div>
+    </div>
+
+  
+
+
+
+    <!-- =========================
+     SCRIPTS   
+    ============================== -->
+   
+    <script>
+        /* PRE LOADER */
+        jQuery(window).load(function () {
+            "use strict";
+            jQuery(".status").fadeOut();
+            jQuery(".preloader").delay(0).fadeOut("slow");
+        })
+    </script>
+
+
+   
+
+    <!-- CUSTOM JS  -->
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <% else # if the user IS signed in, render the following %>
 
-    <script>document.location = "/explore"</script>
+    <script>document.location = "/index"</script>
 
 <% end %>
+
+
+
+
