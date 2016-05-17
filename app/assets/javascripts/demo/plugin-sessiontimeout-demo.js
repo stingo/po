@@ -8,7 +8,7 @@
     keepAliveUrl: '',
     logoutUrl: '',
     redirUrl: '',
-    warnAfter: 20000,
-    redirAfter: 40000
+    warnAfter: 200000,
+    redirAfter: 400000
   });
 })(window);

@@ -18,5 +18,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:displayname, :email, :password, :password_confirmation, :current_password, :firstname, :lastname, :city, :country, :bio, :userphoto, :usercover) }
   end
 
-
+require 'carrierwave'
+require 'carrierwave/orm/activerecord'
 end

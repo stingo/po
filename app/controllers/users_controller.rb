@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
   
      @user = User.find(params[:id])
+     #@user_posts = @user.posts
  
     if request.path != user_path(@user)
     redirect_to @user, status: :moved_permanently
@@ -56,7 +57,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:profilephoto, :profilecover, :bio, :country, :firstname, :lastname, :city, :displayname)
+      params.require(:user).permit(:userphoto, :usercover, :bio, :country, :firstname, :lastname, :city, :displayname)
     end
 
   end

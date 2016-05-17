@@ -28,7 +28,16 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 
 
-gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'		
+gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
+
+
+gem 'country_select'
+
+gem 'carrierwave', '~> 0.10.0'
+
+gem "rmagick"
+
+gem 'best_in_place', '~> 3.0.1'		
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

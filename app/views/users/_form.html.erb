@@ -1,0 +1,33 @@
+<%= form_for(@user) do |f| %>
+  
+  
+
+  
+ <div class="field">
+
+  <%= f.text_field :displayname %>
+    
+    
+    <%= f.label :add_city %><br>
+    <%= f.text_field :city %>
+
+
+    <%= country_select("user", "country") %>
+
+    <%= f.label :add_profile_photo %><br>
+    <%= f.file_field :userphoto %><br>
+
+    <%= f.label :add_profile_cover %><br>
+    <%= f.file_field :usercover %><br>
+
+  </div>
+  <div class="field ">
+     <%= f.label :intro %><br>
+     <%= f.text_area :bio, :autofocus => true, :placeholder => 'Tell us bout yourself... in twenty words maximum', :class => "form-control" %>
+  </div>
+  <br>
+  </div>
+  
+  
+  <%= f.submit "Save changes", class: "btn btn-primary" %>
+<% end %>
