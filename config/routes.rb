@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+
   devise_for :users
+
+  resources :posts
   
   resources :users do
 
@@ -15,7 +19,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'pages#index'
 
-   get '/explore' => 'pages#explore' # override default routes.
+  get '/explore' => 'pages#explore' # override default routes.
   get '/user/:id' => 'pages#profile'
   get '/explore' => 'pages#explore'
 

@@ -1,0 +1,230 @@
+<div class="container">
+
+
+
+<div class ="centered">
+
+
+
+
+    
+
+    <div class="centered fieldfix">
+        <%= render '/components/post_form' %><br><br>
+        </div>
+
+       <!--MIDDLE STARTS-->
+
+
+
+<br />
+<br />
+<br />
+
+
+
+
+
+     <!-- ============================================
+          HEADER
+          =============================================== -->
+          
+
+     
+     <div class="clearfix"></div>
+
+<!--posts starts-->
+
+<div class="fieldfix centered">
+   
+  <% @posts.each_slice(6) do |post| %> 
+          <div class="rowp">
+          <% @posts.each do |post| %>
+          <div class="item preachedge">
+          <div class="panel preachedge">
+
+
+
+          <div class="preach-img">
+              <% if post.postcover? %>
+        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), post %>
+       
+
+
+          <% end %> 
+
+
+              </div>
+
+
+          
+
+<div class="preach-content">
+
+              <%= post.content %>
+
+              </div>
+
+              
+
+
+
+
+
+        <div class="embed-extend-item">
+
+         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
+         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
+
+
+          <!--Profilephoto-->
+          <% if post.user.userphoto? %>
+        <%= link_to (image_tag(post.user.userphoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+                  
+
+
+
+
+              
+
+
+
+
+
+
+ 
+        
+
+
+
+
+                  <%#post preach.title if preach.title %>
+        
+         </div><!-- /.kit-cover-headline -->
+
+          <div class="panel-body">
+          <div class="row">
+
+                  <div class="col-sm-3 bordered-right">
+                      <p class="text-center"><a href:"#">
+                      <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small>Created at date</small></p>
+                  </div><!-- /.cols -->
+
+
+                    <div class="col-sm-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-eye" style="color:#337ab7"></i>end</a>
+                       <br><strong>impre</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-sm-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-comment" style="color:#337ab7"></i>end</a>
+                       <br><strong>comments</strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3">
+                    <h5 class="text-center">
+                      <p id#"song_<%# song.id %>_likes"><%# render partial: "likes", locals: {song: song} %></p>
+                      <%= link_to "Edit", edit_post_path(post) %>
+                      </h5>
+
+                      <%# render :partial => 'show', :locals => { :post => post } %>
+                      <%# post.impressionist_count(:filter=>:session_hash) %>
+
+                      <!--span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{post.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{post.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>"-->
+    <%# post.title if post.title %>
+  </span>
+
+
+
+
+
+
+
+                    
+
+                    </div>
+                  
+
+        </div><!-- /.row -->
+                  
+        </div><!-- /.panel-body-->
+
+        </div>
+
+           
+        </div><!-- panel -->
+        <% end %>
+          </div>
+          <% end %>
+
+
+
+</div>
+
+
+
+
+
+
+   
+
+
+<!--preaches ends-->   
+
+</div>
+</div>
+
+
+
+
+
+          <a href="http://twitter.github.io/bootstrap/" class="btn bootpopup" title="This is title" data-target="popupModal2" data-toggle="popupModal2">Open modal</a>
+
+<div id="popupModal2" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3>Title</h3>
+  </div>
+  <div class="modal-body">
+      <iframe src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal">OK</button>
+  </div>
+</div>
+
+
+<script>$('.bootpopup').click(function(){
+    var frametarget = $(this).attr('href');
+  var targetmodal = $(this).attr('target');
+  if (targetmodal == undefined) {
+    targetmodal = '#popupModal';
+  } else { 
+    targetmodal = '#'+targetmodal;
+  }
+  if ($(this).attr('title') != undefined) {
+    $(targetmodal+ ' .modal-header h3').html($(this).attr('title'));
+    $(targetmodal+' .modal-header').show();
+  } else {
+     $(targetmodal+' .modal-header h3').html('');
+    $(targetmodal+' .modal-header').hide();
+  }  
+    $(targetmodal).on('show', function () {
+        $('iframe').attr("src", frametarget );   
+  });
+    $(targetmodal).modal({show:true});
+  return false;
+    
+});</script>
