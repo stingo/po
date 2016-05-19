@@ -146,8 +146,8 @@
                   </div>
 
                   <div class="btn btn-default mb-1x mr-1x zindez999">
-                  <%# "Preach".pluralize(@user.posts.count) %><br / >
-                    <span class="headline"><strong><%# @user.posts.count %></strong></span>
+                  <%= "Post".pluralize(@user.posts.count) %><br / >
+                    <span class="headline"><strong><%= @user.posts.count %></strong></span>
                     
 
                     </div>

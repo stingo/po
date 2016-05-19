@@ -758,9 +758,21 @@ possition:fixed;
 
 .item {
  display: inline-block;
- padding:  .25rem;
+ padding:  5px;
  width:  100%; 
 }
+.black {
+ 
+ padding-left:  7px;
+ 
+ color: #000000;
+ 
+}
+
+.black:link {
+    color: red;
+}
+
 
 .well {
  position:relative;
@@ -772,7 +784,7 @@ possition:fixed;
     border: 0px;
     border-radius: 2px;
     margin-bottom: 0px;
-    min-height: 20px;
+    min-height: 5px;
     padding: 0px;
 }
 
@@ -781,6 +793,10 @@ possition:fixed;
   padding: 10px 10px 2px 10px;
   text-align: justified;
 
+}
+
+.navbar-toggle {
+	background-color: #4d4d4d;
 }
 
 																				

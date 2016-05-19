@@ -39,7 +39,9 @@ gem "rmagick"
 
 gem 'best_in_place', '~> 3.0.1'	
 
-gem 'friendly_id', '~> 5.1'	
+gem 'friendly_id', '~> 5.1'
+
+gem 'impressionist'	
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

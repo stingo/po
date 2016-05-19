@@ -1,2 +1,202 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="container">
+
+<div class ="centered">
+
+<br />
+                  
+
+              
+
+                  
+<!--POST BODY-->
+
+                    <div class="col-md-5">
+
+                    <div class="paneloveride" style="height:100%" >
+                      <!-- illustration of product img -->
+                      
+                      <div class="text-center" style="padding:0px;line-height:20px;font-size:14px">
+
+        <div class="preach-img">
+        <% if @post.postcover? %>
+        <%= image_tag(@post.postcover.url(:large), :class => "img-responsive centered box-hover preachedge-img") %>
+          <% end %> 
+        </div>
+
+
+        <div class="preach-content">
+             <%= @post.content %>
+         </div>
+
+
+         <% if @post.user.userphoto? %>
+
+          <%#link_to (image_tag @post.user.profilephoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left"), users_path(@user) %>
+        <%= link_to (image_tag(@post.user.userphoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left padding10")), user_path(@post.user_id) %>
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left pullup padding10")), user_path(@post.user_id) %>
+
+
+       <% end %> 
+
+
+
+       <small>
+
+       <strong><i class="fa fa-upload "></i><%= " " %><%= @post.user.firstname.split(" ").map(&:capitalize).join(" ") if @post.user.firstname %><%= " " %><%= @post.user.lastname.split(" ").map(&:capitalize).join(" ") if @post.user.lastname %></strong>
+
+       </small>
+
+
+<!--NAME ENDS-->
+
+
+
+       <div class="dropdown">
+
+        <button class="btn btn-xs btn-default btn-icon dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v rediconcolor"></i></button>
+                          <ul class="dropdown-menu dropdown-menu-right pullup-small">
+                           
+
+                            <li>
+                            
+                            
+      <% if @post.user == current_user -%>
+  
+    <%= link_to 'Edit this post', edit_post_path(@post), class: "btn btn-clean padding10" %>
+    </li>
+   
+    <% end %> 
+
+     <li>
+     <% if @post.user == current_user -%>
+
+     
+
+
+    <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-clean padding10" %>
+
+  <% end %>   
+
+                           
+                             </li>
+
+
+                            <li><a href="#">report copyright infringement</a></li>
+                             
+
+
+                            <li><a href="#">Report spam or abuse</a></li>
+                            
+                          </ul>
+  </div>
+
+
+  &nbsp &nbsp 
+
+  <small>
+
+       <strong><i class="fa fa-eye ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
+
+       </small> 
+
+       <!--end-->
+
+       <div id="post_<%= @post.id %>_likes">
+
+     <%# render partial: "likes", locals: {song: @song} %>
+  
+
+</div> 
+
+
+</div>
+</div>
+
+<!--Colapsible starts-->
+
+  <div class="panel-group pullupleft" id="accordion1">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+
+                      <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
+                        <i class="fa fa-share-alt "></i> Share
+                      </a>
+
+
+
+                    </h3><!-- /panel-title -->
+                  </div><!-- /panel-heading -->
+                  <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                     
+
+                      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                      <div class="addthis_sharing_toolbox"></div>
+
+                      
+                    </div><!-- /panel-body -->
+                  </div><!-- /panel-collapse -->
+                </div><!-- /panel -->
+
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+
+
+                    
+
+<a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
+                        More
+                      </a>
+                
+                
+                    </h3><!-- /panel-title-->
+                  </div><!-- /panel-heading-->
+                  <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div>Something</div>
+                    </div><!-- /panel-body-->
+                  </div><!-- /panel-collapse-->
+                </div><!-- /panel-->
+
+                
+              </div><!-- /panel-group -->
+<!-- End of collapse-->
+
+
+    
+
+
+
+                    </div>
+                    </div>
+
+                    
+
+
+<!--COMMETS STARTS-->
+                    <div class="col-md-7" style="padding: 0px">
+                      <div class="clearfix">
+
+                       <div class="paneloveride " data-fill-color="true">
+
+                 
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon_close fa-lg"></i></button>
+                        <h1>Comments</h1>
+                        <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim magnam ducimus quibusdam quis iure inventore cum, ab dignissimos error. Voluptates doloribus ipsam dolor tenetur voluptatibus deserunt voluptatem, accusantium eaque fuga!</p>
+                        <br>
+                        <button type="button" class="btn btn-lg btn-primary"><i class="icon-basket fa-faw"></i> Add to chart</button>
+                        <button type="button" class="btn btn-lg btn-default">Details</button>
+                      
+                      </div>
+                    </div>
+
+                    </div>
+                  
+                 
+                 
+                 
+</div>
+</div>                

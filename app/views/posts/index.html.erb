@@ -59,11 +59,13 @@
 
           
 
-<div class="preach-content">
+<div class="preach-content black" style="color:#000000">
 
-              <%= post.content %>
+              <%= link_to (post.content), post %>
 
               </div>
+
+              
 
               
 
@@ -119,13 +121,13 @@
                   <div class="col-sm-3 bordered-right">
                       <p class="text-center"><a href:"#">
                       <i class="fa fa-clock-o" style="color:#337ab7"></i>
-                      </a><br><small>Created at date</small></p>
+                      </a><br><small><%= post.created_at.strftime('%d %B %Y') %></small></p>
                   </div><!-- /.cols -->
 
 
                     <div class="col-sm-3 bordered-right">
-                       <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-eye" style="color:#337ab7"></i>end</a>
-                       <br><strong>impre</strong></h5>
+                       <h5 class="text-center"> <a href:"#"><i class="fa fa-eye" style="color:#337ab7"></i></a>
+                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
                     </div><!-- /.cols -->
 
                     <div class="col-sm-3 bordered-right">
