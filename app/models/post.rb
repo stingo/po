@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
-	is_impressionable
-	
+ is_impressionable
+
   belongs_to :user
 
   mount_uploader :postcover, PostcoverUploader

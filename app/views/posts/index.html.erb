@@ -1,3 +1,33 @@
+
+<style>
+
+		
+
+	
+/* Character Count styles */	
+
+
+label{
+	display:block;
+	font-size:14px;
+	}
+
+form div{position:relative;margin:1em 0;}
+form .counter{
+	position:absolute;
+	right:0;
+	top:0;
+	font-size:20px;
+	font-weight:bold;
+	color:#ccc;
+	}
+form .warning{color:#600;}	
+form .exceeded{color:#e00;}	
+
+</style>
+
+
+
 <div class="container">
 
 
@@ -19,6 +49,10 @@
 
 <br />
 <br />
+
+
+
+
 <br />
 
 
@@ -59,7 +93,7 @@
 
           
 
-<div class="preach-content black" style="color:#000000">
+<div class="preach-content" style="color:#000000; ">
 
               <%= link_to (post.content), post %>
 
@@ -188,45 +222,3 @@
 </div>
 </div>
 
-
-
-
-
-          <a href="http://twitter.github.io/bootstrap/" class="btn bootpopup" title="This is title" data-target="popupModal2" data-toggle="popupModal2">Open modal</a>
-
-<div id="popupModal2" class="modal hide fade" tabindex="-1" role="dialog">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal">×</button>
-      <h3>Title</h3>
-  </div>
-  <div class="modal-body">
-      <iframe src="" style="zoom:0.60" frameborder="0" height="250" width="99.6%"></iframe>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal">OK</button>
-  </div>
-</div>
-
-
-<script>$('.bootpopup').click(function(){
-    var frametarget = $(this).attr('href');
-  var targetmodal = $(this).attr('target');
-  if (targetmodal == undefined) {
-    targetmodal = '#popupModal';
-  } else { 
-    targetmodal = '#'+targetmodal;
-  }
-  if ($(this).attr('title') != undefined) {
-    $(targetmodal+ ' .modal-header h3').html($(this).attr('title'));
-    $(targetmodal+' .modal-header').show();
-  } else {
-     $(targetmodal+' .modal-header h3').html('');
-    $(targetmodal+' .modal-header').hide();
-  }  
-    $(targetmodal).on('show', function () {
-        $('iframe').attr("src", frametarget );   
-  });
-    $(targetmodal).modal({show:true});
-  return false;
-    
-});</script>
