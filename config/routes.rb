@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    resource :like, module: :posts
+  end
   
   resources :users do
 

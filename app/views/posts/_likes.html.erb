@@ -1,0 +1,12 @@
+<% if user_signed_in? && current_user.likes?(post) %>
+  <%= link_to "", post_like_path(post), method: :delete, remote: true, :class=>"fa fa-heart fa-2x rediconcolor" %>
+<% else %>
+  <large><%= link_to "", post_like_path(post), method: :post, remote: true,  :class=>"fa fa-heart-o fa-2x rediconcolor" %></large>
+<% end %>
+<br>
+<strong><%= post.likes.count %></strong>
+
+<%# post.likes.each do |like| %>
+  <%# image_tag like.user.avatar_url, width: 20 %>
+<%# end %>
+

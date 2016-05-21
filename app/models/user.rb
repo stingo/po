@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
 
          extend FriendlyId
          friendly_id :displayname
+
+
+#Posts likes
+         has_many :likes, dependent: :destroy
+
+         def likes?(post)
+         post.likes.where(user_id: id).any?
+         end
 end

@@ -39,12 +39,20 @@ class PostsController < ApplicationController
     end
 
     def destroy
+
+
+post = Post.find(params[:id])
+
+
+
+
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to "", notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
      end
+     
 
 def edit
 
@@ -79,7 +87,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :content, :postcover)
+        params.require(:post).permit(:user_id, :id, :name, :content, :postcover)
         
     end
 
