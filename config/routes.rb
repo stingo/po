@@ -1,11 +1,24 @@
 Rails.application.routes.draw do
+  
+  devise_for :users
   get 'posts/new'
 
-  devise_for :users
+
 
   resources :posts do
+    
+ 
+
     resource :like, module: :posts
+
+      member do
+      post :repost
+    end
+
   end
+
+  
+    
   
   resources :users do
 

@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
 
-	impressionist :actions=>[:show,:index]
+
 
     
-    before_action :set_post, only: [:show, :edit, :update, :destroy]
+    before_action :set_post, only: [:show, :edit, :update, :destroy, :repost]
+
+      impressionist :actions=>[:show,:index]
 
 
     def index 
@@ -72,6 +74,19 @@ def edit
       render :action => :edit
     end
   end
+
+  
+
+  def repost
+    post = current_user.posts.new(post_id: @post.id)
+    if post.save
+      redirect_to posts_path
+    else
+      redirect_to :back, alert: "Unable to repost"
+    end
+  end
+
+
     
     
     private
@@ -87,7 +102,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :id, :name, :content, :postcover)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover)
         
     end
 

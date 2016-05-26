@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :posts, dependent: :destroy # remove a user's posts if his account is deleted.
 
          mount_uploader :userphoto, UserphotoUploader
          mount_uploader :usercover, UsercoverUploader
@@ -17,6 +16,8 @@ class User < ActiveRecord::Base
 
 
 #Posts likes
+
+         has_many :posts, dependent: :destroy # remove a user's posts if his account is deleted.
          has_many :likes, dependent: :destroy
 
          def likes?(post)

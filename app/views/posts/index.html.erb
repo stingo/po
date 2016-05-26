@@ -1,30 +1,4 @@
 
-<style>
-
-		
-
-	
-/* Character Count styles */	
-
-
-label{
-	display:block;
-	font-size:14px;
-	}
-
-form div{position:relative;margin:1em 0;}
-form .counter{
-	position:absolute;
-	right:0;
-	top:0;
-	font-size:20px;
-	font-weight:bold;
-	color:#ccc;
-	}
-form .warning{color:#600;}	
-form .exceeded{color:#e00;}	
-
-</style>
 
 
 
@@ -68,8 +42,7 @@ form .exceeded{color:#e00;}
      <div class="clearfix"></div>
 
 <!--posts starts-->
-
-<div class="fieldfix centered">
+ <div class="fieldfix centered">
    
   <% @posts.each_slice(6) do |post| %> 
           <div class="rowp">
@@ -78,126 +51,13 @@ form .exceeded{color:#e00;}
           <div class="panel preachedge">
 
 
-
-          <div class="preach-img">
-              <% if post.postcover? %>
-        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), post %>
-       
+  <%= render partial: "posts/#{post.post_type}", locals: {post: post} %>
+  
 
 
-          <% end %> 
+<%# console %>
 
-
-              </div>
-
-
-          
-
-<div class="preach-content" style="color:#000000; ">
-
-              <%= link_to (post.content), post %>
-
-              </div>
-
-              
-
-              
-
-
-
-
-
-        <div class="embed-extend-item">
-
-         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
-         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
-
-
-          <!--Profilephoto-->
-          <% if post.user.userphoto? %>
-        <%= link_to (image_tag(post.user.userphoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
-
-
-         
-
-        <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
-
-
-       <% end %> 
-
-       <!--end of Profilephoto-->
-                  
-
-
-
-
-              
-
-
-
-
-
-
- 
-        
-
-
-
-
-                  <%#post preach.title if preach.title %>
-        
-         </div><!-- /.kit-cover-headline -->
-
-          <div class="panel-body">
-          <div class="row">
-
-                  <div class="col-sm-3 bordered-right">
-                      <p class="text-center"><a href:"#">
-                      <i class="fa fa-clock-o" style="color:#337ab7"></i>
-                      </a><br><small><%= post.created_at.strftime('%d %B %Y') %></small></p>
-                  </div><!-- /.cols -->
-
-
-                    <div class="col-sm-3 bordered-right">
-                       <h5 class="text-center"> <a href:"#"><i class="fa fa-eye" style="color:#337ab7"></i></a>
-                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
-                    </div><!-- /.cols -->
-
-                    <div class="col-sm-3 bordered-right">
-                      <h5 class="text-center"> <a href:"#"> link to show<i class="fa fa-comment" style="color:#337ab7"></i>end</a>
-                       <br><strong>comments</strong></h5>
-                    </div><!-- /.cols -->
-
-                    <div class="col-xs-3">
-                    <h5 class="text-center">
-                      <p id#"post_<%= post.id %>_likes"><%= render partial: "likes", locals: {post: post} %></p>
-                      <%= link_to "Edit", edit_post_path(post) %>
-                      </h5>
-
-                      <%# render :partial => 'show', :locals => { :post => post } %>
-                      <%# post.impressionist_count(:filter=>:session_hash) %>
-
-                      <!--span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{post.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{post.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>"-->
-    <%# post.title if post.title %>
-  </span>
-
-
-
-
-
-
-
-                    
-
-                    </div>
-                  
-
-        </div><!-- /.row -->
-                  
-        </div><!-- /.panel-body-->
-
-        </div>
+ </div>
 
            
         </div><!-- panel -->
