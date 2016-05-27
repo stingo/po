@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @postcomment.post_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @postcomment.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @postcomment.user %>
+</p>
+
+<p>
+  <strong>—skip-stylesheets:</strong>
+  <%= @postcomment.—skip-stylesheets %>
+</p>
+
+<%= link_to 'Edit', edit_postcomment_path(@postcomment) %> |
+<%= link_to 'Back', postcomments_path %>

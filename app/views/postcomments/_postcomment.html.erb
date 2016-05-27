@@ -1,0 +1,112 @@
+
+
+ <div class="panel mb-1x">
+            <div class="panel-body">
+              <div class="row">
+
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-6 hidden-xs">
+               
+
+                <div class="pt-1x"> 
+
+                <!--a href="#" class="kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw">
+                  <%# image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw") %>
+                 </a-->
+
+
+
+
+            <% if postcomment.user.userphoto? %>
+            <%=link_to (image_tag(postcomment.user.userphoto.url(:small), :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw comment-img")), user_path(postcomment.user_id) %>
+            <% else %> 
+            <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-28 no-border mr-1x pull-left kit-avatar-fw comment-img")), user_path(postcomment.user_id) %></a></li>
+           <% end %> 
+
+           
+           
+
+            </div>
+
+
+           </div><!-- /.cols -->
+                
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+
+               
+
+
+
+                <!-- inner row for name-->
+
+                <div class="row">
+
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
+
+
+                <small><%= postcomment.user.firstname + " " + "says" if postcomment.user.firstname %></small>
+                </div>
+
+                </div>
+
+                <!-- End inner row for name-->
+
+
+                  
+                 
+                  
+                <div class="pt-1x"><%= best_in_place_if postcomment.user == current_user, postcomment, :body,  :as => :textarea, :ok_button => 'Save ',  :cancel_button => ' Cancel' %></div>
+                
+                </div><!-- /.cols -->
+
+               
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 hidden-xs">
+                  <div class="pt-1x"><%= time_ago_in_words(postcomment.created_at) %> ago</div>
+                </div><!-- /.cols -->
+
+              
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 text-right pull-right">
+
+                <div class="dropdown pull-right">
+                          <button class="btn btn-xs btn-default btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v"></i></button>
+                          <ul class="dropdown-menu dropdown-menu-right">
+                           
+
+                            <li>
+                            
+                            <% if postcomment.user == current_user -%>
+                            <h5><%= link_to 'Delete comment', postcomment, method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-danger margin-left10" %></h5>
+                            
+                            
+                           
+                              </li>
+                              <% end %>
+
+
+                            <li><a href="#">Report spam or abuse</a></li>
+                            <li><a href="#">Send a message</a></li>
+                          </ul>
+                  </div>
+                  <!--a href="#" class="btn btn-primary">Edit</a-->
+                </div><!-- /.cols -->
+
+              
+
+              </div><!-- /.row -->
+            </div><!-- /.panel-body -->
+          </div><!-- /.panel -->
+
+
+
+          <!-- End -->
+
+
+  
+
+
+
+
+
+
+  
+

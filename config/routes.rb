@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
   
+  resources :postcomments
   devise_for :users
   get 'posts/new'
 
 
 
   resources :posts do
-    
- 
 
-    resource :like, module: :posts
+  resources :postcomments
+  
+  resource :like, module: :posts
 
       member do
       post :repost
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     
   
   resources :users do
+
 
   end
   
