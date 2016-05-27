@@ -68,6 +68,7 @@ body {
 
 .finline {
     display:inline-block;
+    width: 49%;
 
 }
 
@@ -80,6 +81,15 @@ body {
     margin: 0 0 100px;
     padding: 4px 35px;
     transition: all 0.55s ease 0s;
+}
+
+.signin-wrapper {
+    background-color: #fff;
+    box-shadow: 0 8px 17px rgba(22, 24, 27, 0.2);
+    margin: 60px auto 5px;
+    padding: 20px;
+    position: relative;
+    width: 420px;
 }
 
 .pr-reduce20{
