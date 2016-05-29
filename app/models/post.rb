@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 
-  belongs_to :user
-  belongs_to :post
+  
 
  is_impressionable
 
@@ -12,6 +11,8 @@ class Post < ActiveRecord::Base
 
   mount_uploader :postcover, PostcoverUploader
 
+  belongs_to :user
+  belongs_to :post
   
   has_many :likes
   has_many :postcomments, dependent: :destroy

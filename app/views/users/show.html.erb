@@ -224,6 +224,101 @@
           Lists
           =============================================== -->
 
+
+
+
+          <% @user_posts.each_slice(6) do |post| %> 
+          <div class="row">
+          <% @user_posts.each do |post| %>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="panel">
+
+
+
+          
+
+
+          <% if post.postcover? %>
+        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover"), post_path(post) %>
+
+
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "img-responsive centered   box-hover") %>
+
+        <% end %>
+
+
+        <div class="embed-extend-item">
+                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
+                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
+                  </a>
+                  <h3 class="subhead" style="color:#337ab7">Title<%# link_to (post.title.split(" ").map(&:capitalize).join(" ")),
+
+
+                   post_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
+                </div><!-- /.kit-cover-headline -->
+
+                <div class="panel-body">
+                  <div class="row">
+
+                  <div class="col-xs-3 bordered-right">
+
+                    
+                      <p class="text-center"><a href:"#">
+                        
+                        <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small><%= post.created_at.strftime('%d %B %Y') %></small></p>
+                    </div><!-- /.cols -->
+
+
+                    <div class="col-xs-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
+                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
+                    <br><strong><%= post.postcomments.count %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3">
+                    <h5 class="text-center">
+
+                    <i class="fa fa-heart fa-2x" style="color:#ff0000"></i>
+
+
+
+                      <%= post.likes.count %>
+                      </h5>
+                    </div><!-- /.cols -->
+                  
+
+                  </div><!-- /.row -->
+                  
+                  </div><!-- /.panel-body-->
+
+
+
+           </div><!-- col -->
+           </div><!-- panel -->
+          <% end %>
+          </div>
+          <% end %>
+
+     
+
+
+
+          <!-- ============================================
+          Lists
+          =============================================== -->
+
+
+
+
+
+
+
          
           
 
@@ -265,33 +360,7 @@
   </main><!-- /#MAIN -->
 
 
-  <!-- VENDORS : jQuery & Bootstrap -->
-  <script src="scripts/vendor.js"></script>
-  <!-- END VENDORS -->
-
-  <!-- DEPENDENCIES : Required plugins -->
-  <script src="scripts/dependencies.js"></script>
-  <!-- END DEPENDENCIES -->
-
-  <!-- WRAPKIT -->
-  <script src="scripts/wrapkit.js"></script>
-  <!-- END WRAPKIT -->
-
-  <!-- WRAPKIT SETUPS -->
-  <script src="scripts/wrapkit-setup.js"></script>
-  <!-- end WRAPKIT SETUPS -->
-
-  <!-- PLUGIN SETUPS: vendors & dependencies setups -->
-  <script src="scripts/plugin-setups.js"></script>
-  <!-- END PLUGIN SETUPS -->
-
-  <!-- CHARTS -->
-  <script src="scripts/chartjs.js"></script>
-  <!-- END CHARTS -->
-
-  <!-- DUMMY: Use for demo -->
-  <script src="scripts/demo/page-profile-demo.js"></script>
-
+ 
 
   <!-- Google Analytics: change UA-48454066-1 to be your site's ID. -->
   <script>

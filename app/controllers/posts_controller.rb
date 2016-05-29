@@ -35,6 +35,8 @@ class PostsController < ApplicationController
     	@post = Post.find(params[:id])
         #impressionist(@post)
 
+      
+
          @newPost = Post.new
     
 

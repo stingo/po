@@ -14,16 +14,19 @@
 
 
 
+<% if current_user.present? %> <!--validate the presence of user-->
 
 <%= form_for [@post, Postcomment.new] do |f| %>
-  
+
   <div class="field ">
      <%= f.text_area :body, :autofocus => true, :placeholder => 'write comment...', :class => "form-control" %>
   </div>
 
  
   <h5><%= f.submit "Post", :class => "btn btn-primary" %></h5>
+ 
 
+<% end %>
 <% end %>
 
 <br>

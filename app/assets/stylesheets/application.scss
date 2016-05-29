@@ -72,6 +72,8 @@ body {
 
 }
 
+
+
 .single-service {
     background: #ffffff none repeat scroll 0 0;
     border-color: #eaeaea;
@@ -154,8 +156,16 @@ margin-bottom: -20px;
 
 .pushnav2{
   
-  margin-top: 0px;
+ top: 32px;
  
+}
+
+.vopen {
+  height: 10px;
+}
+
+.closeleft{
+  margin-left: -140px;
 }
 
 .fieldfix{
@@ -534,6 +544,10 @@ font-family: "Calibre","Helvetica Neue",Helvetica,Arial,sans-serif;
 
 .zindez999 {
             z-index: 999;
+          }
+
+          .zindez222 {
+            z-index: 222;
           }
 
 .comment-owner {

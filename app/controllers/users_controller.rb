@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
+  impressionist :actions=>[:show,:index]
+
 
 		before_action :authenticate_user!, :except => [:index, :show]
+    before_action :set_user, only: [:show, :edit, :update]
 	
   
 
@@ -14,7 +17,7 @@ class UsersController < ApplicationController
   
      @user = User.friendly.find(params[:id])
      
-     #@user_posts = @user.posts
+     @user_posts = @user.posts #important! to enable users posts on user profile
  
     if request.path != user_path(@user)
     redirect_to @user, status: :moved_permanently

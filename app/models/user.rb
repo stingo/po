@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  is_impressionable
+
 	validates_presence_of :displayname
 
   # Include default devise modules. Others available are:

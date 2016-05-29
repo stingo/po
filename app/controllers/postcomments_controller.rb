@@ -66,7 +66,7 @@ class PostcommentsController < ApplicationController
 
   private
     def set_postcomment
-      @postcomment = Comment.find(params[:id])
+      @postcomment = Postcomment.find(params[:id])
 
 
     end

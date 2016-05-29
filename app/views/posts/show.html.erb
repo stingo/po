@@ -17,7 +17,7 @@
                       
                       <div class="text-center" style="padding:0px;line-height:20px;font-size:14px">
 
-        <div class="preach-img">
+        <div class="preach-img pushnav2 zindez222">
         <% if @post.postcover? %>
         <%= image_tag(@post.postcover.url(:large), :class => "img-responsive centered box-hover preachedge-img") %>
           <% end %> 
@@ -41,9 +41,25 @@
 
 
 
-       <small>
 
-       <strong><i class="fa fa-upload "></i><%= " " %><%= @post.user.firstname.split(" ").map(&:capitalize).join(" ") if @post.user.firstname %><%= " " %><%= @post.user.lastname.split(" ").map(&:capitalize).join(" ") if @post.user.lastname %></strong>
+
+       <!--end-->
+<div id="post_<%= @post.id %>_likes">
+       <%= render partial: "likes", locals: {post: @post} %>
+</div>
+       
+
+
+
+</div>
+</div>
+
+<div class="panel" style="z-index: 999 important!">
+
+
+         <small>
+
+       <strong class="closeleft"><i class="fa fa-upload "></i><%= " " %><%= @post.user.firstname.split(" ").map(&:capitalize).join(" ") if @post.user.firstname %><%= " " %><%= @post.user.lastname.split(" ").map(&:capitalize).join(" ") if @post.user.lastname %></strong>
 
        </small>
 
@@ -94,23 +110,18 @@
 
   &nbsp &nbsp 
 
-  <small>
+        <small>
 
        <strong><i class="fa fa-eye ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
 
-       </small> 
+       
 
-       <!--end-->
+      
 
-       <div id="post_<%= @post.id %>_likes">
-
-     <%= render partial: "likes", locals: {post: @post} %>
   
 
-</div> 
-
-
-</div>
+       </small>   
+  
 </div>
 
 <!--Colapsible starts-->
