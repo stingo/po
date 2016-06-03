@@ -73,9 +73,13 @@
 
           
           <ul class="dropdown-menu">
+
+          <li role="separator" class=""></li>
+            <li><%= link_to('View Profile', user_path(current_user.id) ) %></li>
             
             <li role="separator" class="divider"></li>
             <li><%= link_to('Settings', edit_user_registration_path) %></li>
+            
             <li role="separator" class="divider"></li>
             <li><%= link_to('Log Out', destroy_user_session_path, :method => :delete) %></li>
           </ul>

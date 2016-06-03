@@ -48,10 +48,12 @@
           <div class="rowp">
           <% @posts.each do |post| %>
           <div class="item preachedge">
-          <div class="panel preachedge">
+          <div class="panel preachedge po-slim">
 
 
   <%= render partial: "posts/#{post.post_type}", locals: {post: post} %>
+
+  
   
 
 
@@ -74,11 +76,17 @@
 
 
 
-   
+   <%# link_to 'Load More Posts', posts_path(:page => @posts.next_page), :class => 'load-more-posts', :remote => true if @posts.next_page %>
+
+
 
 
 <!--preaches ends-->   
 
 </div>
 </div>
+
+<br />
+<br />
+ <%= will_paginate @posts %>
 

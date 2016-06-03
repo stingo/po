@@ -134,7 +134,7 @@
                         <!-- VERTICAL REGISTRATION FORM -->
                         <div class="vertical-registration-form">
                             
-                            <h4 class="white-text">PreachOut The Gospel. Get started - it's free.</h4>
+                            <h4 class="whitee-text">Get started - it's free.</h4>
 
                             <%= form_for(:user, :url => registration_path(:user)) do |f| %>
                             
@@ -182,7 +182,7 @@
                                 <%= f.password_field :password, :autocomplete => "off", :autofocus => true, :placeholder => 'Create a password(6 or more characters)', :class => "form-control input-box" %>
                                 <%# f.check_box :remember_me, :autofocus => true, :class => "form-control input-box" %><%# f.label :remember_me %>
                                 <%# f.password_field :password_confirmation, :autocomplete => "off", :autofocus => true, :placeholder => 'Confirm Password', :class => "form-control input-box" %>
-                                <p class="transparent-text">
+                                <p class=" small Ttransparent-text">
                                 By clicking Join now, you agree to PreachOut's User Agreement, Privacy Policy, and Cookie Policy.
                                 </p>
                                 
@@ -255,104 +255,190 @@
               <div class="panel">
                 <ul class="nav nav-tabs nav-justified" id="demo1-tabs">
                   <li class="active"><a href="#botabs1" data-toggle="tab">Music & Sermons</a></li>
-                  <li><a href="#botabs2" data-toggle="tab">Preaches</a></li>
-                  <li><a href="#botabs3" data-toggle="tab">Videos</a></li>
+                  
                 </ul>
                 <div class="panel-body">
                   <div class="tab-content">
 <div class="tab-pane fade in active" id="botabs1">
 <p>
-audo
+<!--Posts Start-->
+
+ <% @posts.each do |post| %>
+          <div class="col-lg-4 col-md-8 col-sm-6">
+          <div class="panel border-grey po-slim">
+
+
+ 
+
+<!--posts starts-->
+
+
+   
+ 
+
+
+
+          <div class="preach-img">
+              <% if post.postcover? %>
+        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), post %>
+       
+
+
+          <% end %> 
+
+
+              </div>
+
+
+          
+
+<div class="preach-content" style="color:#000000; ">
+
+              <%= link_to (post.content), post %>
+
+              </div>
+
+              
+
+              
+
+
+
+
+
+        <div class="embed-extend-item">
+
+         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
+         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
+
+
+          <!--Profilephoto-->
+          <% if post.user.userphoto? %>
+        <%= link_to (image_tag(post.user.userphoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+                  
+
+
+
+
+              
+
+
+
+
+
+
+ 
+        
+
+
+
+
+                  <%#post preach.title if preach.title %>
+        
+         </div><!-- /.kit-cover-headline -->
+
+          <div class="panel-body">
+          <div class="row">
+
+                  <div class="col-sm-3 bordered-right">
+                      <h5 class="text-center"><a href:"#">
+                      <!--i class="fa fa-clock-o" style="color:#337ab7"></i-->
+                      </a><strong style="font-size: 11px"><%= post.created_at.strftime('%H:%M %-d-%-m-%Y') %></strong></h5>
+                  </div><!-- /.cols -->
+
+
+                    <div class="col-sm-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#">
+                       <i class="fa fa-eye fa-2x" style="color:#337ab7"></i></a>
+                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment fa-2x" style="color:#337ab7"></i><% end %></a>
+                    <br><strong><%= post.postcomments.count %></strong></h5>
+
+                    </div><!-- /.cols -->
+
+                    <div class="col-xs-3">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-heart-o fa-2x" style="color:#ff0000"></i><% end %></a>
+                    <br><strong><%= post.likes.count %></strong></h5>
+
+                    </div><!-- /.cols -->
+
+
+                  
+
+        </div><!-- /.row -->
+                  
+        </div><!-- /.panel-body-->
+
+      
+
+           
+        
+       
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+<%# console %>
+
+ </div>
+
+           
+        </div><!-- panel -->
+        <% end %>
+         
+
+
+
+</div>
+
+ 
+
+<!--Posts End-->
 
                       </p>
 
     <h3 class= "centered fontsize"><a href="/audios"> See all ...</a></h3>
-                    </div>
+    </div>
 
 
 
                     
-    <div class="tab-pane fade" id="botabs2">
-    <p>
+   
 
 
 <!--preaches starts-->
 
-<div class="rowp">
-    <div class="item">
-      <div class="well"> 
-        1 blah blah blah
-      </div>
-    </div>
-  <div class="item">
-        <div class="well"> 
-        2 blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        3 blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-        blah blah blah blah 
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
-  <div class="item">
-        <div class="well"> 
-        blah blah blah blah blah blah blah blah blah blah blah blahblah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well">
-        blah blah blah blah blah blah blah blah h
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-        blah blah blah blah blah blah blah blah blah blah blah blah
-        </div>
-    </div>
-    <div class="item">
-        <div class="well"> 
-          blah blah blah. The container inside the item must be position:relative
-          blah blah blah. The container inside the item must be position:relative
-        </div>
-    </div>
-</div>
-
-<!--preaches ends-->
-
-
-
-                      </p>
-    <h3 class= "centered fontsize"><a href="/preaches"> See all ...</a></h3>
-                    </div>
-
-                     <div class="tab-pane fade" id="botabs3">
-                      <p>
-                          
-
-
-Video
-
-                      </p>
-      <h3 class= "centered fontsize"><a href="/videos"> See all ...</a></h3>
-                    </div>
 
 
                   </div><!-- /tab-content -->

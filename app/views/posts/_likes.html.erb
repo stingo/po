@@ -1,7 +1,7 @@
 <% if user_signed_in? && current_user.likes?(post) %>
-  <%= link_to "", post_like_path(post), method: :delete, remote: true, :class=>"fa fa-heart fa-2x rediconcolor" %>
+  <%= link_to "", post_like_path(post), method: :delete, remote: true, :class=>"fa fa-heart rediconcolor" %>
 <% else %>
-  <large><%= link_to "", post_like_path(post), method: :post, remote: true,  :class=>"fa fa-heart-o fa-2x rediconcolor" %></large>
+  <large><%= link_to "", post_like_path(post), method: :post, remote: true,  :class=>"fa fa-heart-o rediconcolor" %></large>
 <% end %>
 <br>
 <strong><%= post.likes.count %></strong>

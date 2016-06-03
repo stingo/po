@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  self.per_page = 15
+
   
 
  is_impressionable
@@ -13,8 +15,9 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :post
-  
-  has_many :likes
+
+  has_many :likes, dependent: :destroy
+
   has_many :postcomments, dependent: :destroy
 
 

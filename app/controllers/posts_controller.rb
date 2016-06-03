@@ -8,10 +8,19 @@ class PostsController < ApplicationController
       impressionist :actions=>[:show,:index]
 
 
-    def index 
-        @posts = Post.all.order('created_at DESC')
-        @newPost = Post.new
+    #def index before scroll paginate
+        #@posts = Post.all.order('created_at DESC')
+        #@newPost = Post.new
+    #end
+
+    def index
+    @posts = Post.paginate(:page => params[:page]) # replaces Post.all
+    @newPost = Post.new
+    respond_to do |format|
+      format.html
+      format.js # add this line for your js template
     end
+  end
 
 
     def new 
@@ -35,7 +44,7 @@ class PostsController < ApplicationController
     	@post = Post.find(params[:id])
         #impressionist(@post)
 
-      
+
 
          @newPost = Post.new
     

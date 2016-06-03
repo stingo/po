@@ -24,7 +24,7 @@
         </div>
 
 
-        <div class="preach-content">
+        <div class="lead preach-content">
              <%= @post.content %>
          </div>
 
@@ -139,7 +139,7 @@
 
                     </h3><!-- /panel-title -->
                   </div><!-- /panel-heading -->
-                  <div id="collapseOne" class="panel-collapse collapse">
+                  <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
                      
 
@@ -188,7 +188,8 @@
 
 
 <!--COMMETS STARTS-->
-                    <div class="col-md-7 innerscroll" style="padding: 0px">
+                    <div class="col-md-7 innerscroll">
+                    <div data-toggle="slimScroll" style="height:450px" data-color="#48CFAD" data-rail-color="#48CFAD" data-allow-page-scroll="false" data-rail-visible="true">
                       <div class="clearfix">
 
                        <div class="paneloveride" data-fill-color="true">
@@ -196,7 +197,9 @@
                  
                       
                         <div class="pullup-small" data-fill-color="true">
-        <div><%= render 'postingcomments' %></div>
+
+                       <div><%= render 'postingcomments' %></div>
+
 
                         
                       
@@ -204,9 +207,12 @@
                     </div>
 
                     </div>
+                    </div>
                   
                  
                  
                  
 </div>
-</div>                
+</div> 
+
+               

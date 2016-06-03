@@ -148,6 +148,8 @@
                   <div class="btn btn-default mb-1x mr-1x zindez999">
                   <%= "Post".pluralize(@user.posts.count) %><br / >
                     <span class="headline"><strong><%= @user.posts.count %></strong></span>
+
+                    
                     
 
                     </div>
@@ -169,6 +171,151 @@
             </div><!-- /.row -->
           </div><!-- /.content-hero-bar -->
         </div><!-- /.content-hero -->
+
+
+
+
+    <section class="services" id="section1">
+        <div class="container">
+
+
+            <div class="col-sm-12">
+
+            <div class="frontsize"><h1><strong>Check out what’s trending for free on PreachOut</strong></h1></div>
+            <br />
+              
+              <div class="panel">
+                <ul class="nav nav-tabs nav-justified" id="demo1-tabs">
+                  <li class="active"><a href="#botabs1" data-toggle="tab">Posts</a></li>
+                  <li><a href="#botabs2" data-toggle="tab"><%= "Favorite".pluralize(@user.likes.count) %> &nbsp <%= @user.likes.count %></a></li>
+                  
+                </ul>
+                <div class="panel-body">
+                  <div class="tab-content">
+<div class="tab-pane fade in active" id="botabs1">
+<p>
+<!--START-->
+
+<% @user_posts.each do |post| %>
+          <div class="col-lg-4 col-md-8 col-sm-6">
+          <div class="panel border-grey po-slim">
+
+
+
+          
+
+
+          <% if post.postcover? %>
+        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive preachedge-img centered box-hover"), post_path(post) %>
+
+
+        <% else %> 
+        <%= image_tag("noimage.jpg", :class => "img-responsive preachedge-img centered   box-hover") %>
+
+        <% end %>
+
+
+        <div class="embed-extend-item">
+                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
+                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
+                  </a>
+                  <h3 class="subhead" style="color:#337ab7">Title<%# link_to (post.title.split(" ").map(&:capitalize).join(" ")),
+
+
+                   post_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
+        </div><!-- /.kit-cover-headline -->
+
+                  <div class="panel-body">
+                  <div class="row">
+
+        <div class="col-xs-3 bordered-right">
+
+                    
+                      <p class="text-center"><a href:"#">
+                        
+                        <i class="fa fa-clock-o" style="color:#337ab7"></i>
+                      </a><br><small><%= post.created_at.strftime('%d %B %Y') %></small></p>
+        </div><!-- /.cols -->
+
+
+        <div class="col-xs-3 bordered-right">
+                       <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
+                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
+        </div><!-- /.cols -->
+
+        <div class="col-xs-3 bordered-right">
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
+                    <br><strong><%= post.postcomments.count %></strong></h5>
+        </div><!-- /.cols -->
+
+        <div class="col-xs-3">
+                    <h5 class="text-center">
+
+                    <i class="fa fa-heart fa-2x" style="color:#ff0000"></i>
+
+
+
+                      <%= post.likes.count %>
+                      </h5>
+        </div><!-- /.cols -->
+                  
+
+                  </div><!-- /.row -->
+                  
+                  </div><!-- /.panel-body-->
+
+
+
+           </div><!-- col -->
+           </div><!-- panel -->
+
+          <% end %>
+  
+<!--END-->
+</p>
+
+<div>
+
+    <h3 class= "centered fontsize"><a href="/audios"> See all ...</a></h3>
+    </div>
+</div>
+
+
+
+
+<!--Favorites Starts-->
+                    
+<div class="tab-pane fade" id="botabs2">
+<p>
+
+
+<!--starts-->
+
+
+
+<!--ends-->
+
+
+
+    </p>
+    <h3 class= "centered fontsize"><a href="/preaches"> See all ...</a></h3>
+                    </div>
+
+                    
+
+
+                  </div><!-- /tab-content -->
+                </div><!-- /panel-body -->
+              </div><!-- /.panel -->
+            </div><!-- /.cols -->
+
+                
+
+           
+        </div>
+
+        
+    </section>
 
 
 
@@ -208,102 +355,44 @@
           <!-- ============================================
           FOLLOWERS LIST
           =============================================== -->
-          <div class="row mb-4x mt-4x">
+          <!--div class="row mb-4x mt-4x">
             <div class="col-xs-12 bg-white">
               <div class="p-2x">
                 <h1>You Have 1,248 Followers</h1>
                
               </div>
-            </div><!-- /.cols -->
-          </div><!-- /.row -->
+            </div>
+          </div--><!-- /.row -->
 
           
 
 
           <!-- ============================================
-          Lists
+          Lists <div class="row show-grid">
+            <div class="col-xs-12 col-sm-6 col-md-8">.col-xs-12 .col-sm-6 .col-md-8</div>
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+          </div>
           =============================================== -->
 
 
 
 
-          <% @user_posts.each_slice(6) do |post| %> 
-          <div class="row">
-          <% @user_posts.each do |post| %>
-          <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="panel">
+
+
+
+
+
+
+ 
+
+
+
 
 
 
           
 
-
-          <% if post.postcover? %>
-        <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover"), post_path(post) %>
-
-
-        <% else %> 
-        <%= image_tag("noimage.jpg", :class => "img-responsive centered   box-hover") %>
-
-        <% end %>
-
-
-        <div class="embed-extend-item">
-                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
-                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
-                  </a>
-                  <h3 class="subhead" style="color:#337ab7">Title<%# link_to (post.title.split(" ").map(&:capitalize).join(" ")),
-
-
-                   post_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
-                </div><!-- /.kit-cover-headline -->
-
-                <div class="panel-body">
-                  <div class="row">
-
-                  <div class="col-xs-3 bordered-right">
-
-                    
-                      <p class="text-center"><a href:"#">
-                        
-                        <i class="fa fa-clock-o" style="color:#337ab7"></i>
-                      </a><br><small><%= post.created_at.strftime('%d %B %Y') %></small></p>
-                    </div><!-- /.cols -->
-
-
-                    <div class="col-xs-3 bordered-right">
-                       <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-eye" style="color:#337ab7"></i><% end %></a>
-                       <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
-                    </div><!-- /.cols -->
-
-                    <div class="col-xs-3 bordered-right">
-                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
-                    <br><strong><%= post.postcomments.count %></strong></h5>
-                    </div><!-- /.cols -->
-
-                    <div class="col-xs-3">
-                    <h5 class="text-center">
-
-                    <i class="fa fa-heart fa-2x" style="color:#ff0000"></i>
-
-
-
-                      <%= post.likes.count %>
-                      </h5>
-                    </div><!-- /.cols -->
-                  
-
-                  </div><!-- /.row -->
-                  
-                  </div><!-- /.panel-body-->
-
-
-
-           </div><!-- col -->
-           </div><!-- panel -->
-          <% end %>
-          </div>
-          <% end %>
+         
 
      
 
@@ -329,6 +418,8 @@
           </p>
 
         </div><!-- /.content-body -->
+
+
 
 
         <!-- Template Setups -->

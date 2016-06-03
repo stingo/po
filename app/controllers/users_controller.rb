@@ -18,6 +18,7 @@ class UsersController < ApplicationController
      @user = User.friendly.find(params[:id])
      
      @user_posts = @user.posts #important! to enable users posts on user profile
+     @user_likes = @user.likes #important! to enable users posts on user profile
  
     if request.path != user_path(@user)
     redirect_to @user, status: :moved_permanently
