@@ -48,6 +48,12 @@ form .exceeded{color:#ff0000;}
                                   
 
                                 </li>
+
+
+                                <li> 
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "control-label" } %>
+ </li>
                                 
               </ul><!-- /.nav nav-pills -->
 

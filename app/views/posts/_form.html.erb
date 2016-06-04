@@ -22,7 +22,10 @@
               </div>
 
  
+<div class="field"> 
 
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
+ </div>
   
   <div class="actions">
     <%= f.submit %>

@@ -24,7 +24,15 @@
 <br />
 <br />
 
+<div class= "container">
+     
+        <%= link_to "All Posts", root_path %>
+       <% Postcategory.all.each do |postcategory| %>
+          <%=  link_to postcategory.name, posts_path(postcategory: postcategory.name) %>
+     
+  <% end %>
 
+  </div>
 
 
 <br />
@@ -88,5 +96,5 @@
 
 <br />
 <br />
- <%= will_paginate @posts %>
+ <%# will_paginate @posts %>
 

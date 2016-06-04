@@ -77,12 +77,19 @@ body {
 .po-slim {
     background: #ffffff none repeat scroll 0 0;
     border-color: #eaeaea;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 8px 8px 8px 8px;
     border-style: solid;
     border-width: 1px 1px 4px;
     margin: 0 0 15px;
     padding: 0;
     transition: all 0.55s ease 0s;
+}
+
+
+.box-hover:hover {
+    color:white;
+    opacity:0.5;    
+
 }
 
 
@@ -478,7 +485,7 @@ font-size: 18px;
   }
 
   .preachedge{
-            border-radius: 10px 10px 0px 0px;
+            border-radius: 8px 8px 8px 8px;
   }
   .preachedge-img{
             border-radius: 10px 10px 0px 0px;

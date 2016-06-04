@@ -22,14 +22,19 @@
 
           
 
-<div class="preach-content" style="color:#000000; ">
+<div class="preach-content box-hover" style="color:#000000; ">
 
               <%= link_to (post.content), post %>
 
               </div>
 
-              
+<!--Get category name for each post-->
+<% Postcategory.all.limit(1).each do |postcategory| %>     
 
+<%=  link_to (post.postcategory.name), posts_path(postcategory: postcategory.name) %>
+
+<% end %>
+<!--end-->
               
 
 

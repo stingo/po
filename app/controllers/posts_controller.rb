@@ -14,13 +14,29 @@ class PostsController < ApplicationController
     #end
 
     def index
-    @posts = Post.paginate(:page => params[:page]) # replaces Post.all
-    @newPost = Post.new
+
+      @newPost = Post.new
+
+
+      if params[:postcategory].blank?
+      @posts = Post.all.order("created_at DESC")
+    else
+      @postcategory_id = Postcategory.find_by(name: params[:postcategory]).id
+      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC")
+    end
+
+
+
+
+    #@posts = Post.paginate(:page => params[:page]) # replaces Post.all
+    #@newPost = Post.new
     respond_to do |format|
       format.html
       format.js # add this line for your js template
     end
-  end
+    end
+
+ 
 
 
     def new 
@@ -113,7 +129,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :postcategory_id)
         
     end
 
