@@ -24,29 +24,47 @@
         </div>
 
 
-        <div class="lead preach-content">
+        <div class="lead preach-content box-hover" style="color:#000000;">
              <%= @post.content %>
          </div>
+
+
+  <div class="embed-extend-item">
 
 
          <% if @post.user.userphoto? %>
 
           <%#link_to (image_tag @post.user.profilephoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left"), users_path(@user) %>
-        <%= link_to (image_tag(@post.user.userphoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left padding10")), user_path(@post.user_id) %>
+        <%= link_to (image_tag(@post.user.userphoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left pullup-30 padding10")), user_path(@post.user_id) %>
         <% else %> 
-        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left pullup padding10")), user_path(@post.user_id) %>
+        <%= link_to (image_tag("noimage-small.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left pullup-30 padding10")), user_path(@post.user_id) %>
 
 
-       <% end %> 
+  <% end %> 
 
 
+<% Postcategory.all.limit(1).each do |postcategory| %>     
+<div class="pull-left">
 
+<small class="media-heading"><%= link_to (@post.user.firstname), user_path(@post.user_id) if @post.user.firstname %></span><span>&nbsp<%= link_to (@post.user.lastname), user_path(@post.user_id) if @post.user.lastname %></span></small> 
+<br>
+
+<strong style="color: #000000;"><%=  link_to (@post.postcategory.name), posts_path(postcategory: postcategory.name), :class =>"text-muted pull-left closebtn-5" %></strong>
+
+</div>
+<% end %>
+
+<span class="pull-right"><div id="post_<%= @post.id %>_likes" style="font-size:24px; color: #ff0000; margin-top: -25px;">
+       <%= render partial: "likes", locals: {post: @post} %>
+</div>
+</span>
+
+
+</div>
 
 
        <!--end-->
-<div id="post_<%= @post.id %>_likes">
-       <%= render partial: "likes", locals: {post: @post} %>
-</div>
+
        
 
 

@@ -11,13 +11,17 @@ class UsersController < ApplicationController
   def index
   	@users = User.all
 
+
+
   end
 
   def show
+
+    @newPost = Post.new
   
      @user = User.friendly.find(params[:id])
      
-     @user_posts = @user.posts #important! to enable users posts on user profile
+     @user_posts = @user.posts.order("created_at DESC") #important! to enable users posts on user profile
      @user_likes = @user.likes #important! to enable users posts on user profile
  
     if request.path != user_path(@user)
@@ -30,6 +34,7 @@ class UsersController < ApplicationController
   end
 
   end
+  
 
 
   def edit
@@ -59,6 +64,12 @@ private
    def set_user
        @user = User.friendly.find(params[:id])
     end
+
+    def content_or_postcover
+  if content.blank? && postcover.blank?
+    errors[:base] << "Specify postcover, content or Both."
+  end
+end
    
 
     # Never trust parameters from the scary internet, only allow the white list through.

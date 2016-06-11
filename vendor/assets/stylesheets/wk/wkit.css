@@ -2013,7 +2013,7 @@ body.wrapkit-sidebar-vertical .sidebar .nav-fake-padding {
 
 .content-hero .content-hero-embed {
   position: absolute;
-  top: 0;
+  top: 40px;
   right: 0;
   width: 100%;
   z-index: 1

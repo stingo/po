@@ -198,6 +198,12 @@ margin-bottom: -20px;
 
 }
 
+.closebtn-5{
+  margin-top: -5px;
+  font-size: 11px;
+
+}
+
 .closebtn>a {
   color: #FF0000;
   text-decoration: none
@@ -488,6 +494,11 @@ font-size: 18px;
     margin-top: -55px;
   }
 
+  .pullup-30 {
+
+    margin-top: -30px;
+  }
+
   .pullupform {
 
     margin-top: -30px;
@@ -718,6 +729,19 @@ body {
 
 
 .footer {
+  
+  left: 0px;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 45px;
+  background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  z-index:999;
+}
+ 
+
+ .footer-song {
   position: fixed;
   left: 0px;
   bottom: 0;
@@ -728,7 +752,6 @@ body {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   z-index:999;
 }
- 
 
 
 

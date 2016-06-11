@@ -44,7 +44,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-9">
 
 
-                <small><%= postcomment.user.firstname + " " + "says" if postcomment.user.firstname %></small>
+                <small><%= link_to (postcomment.user.firstname), user_path(postcomment.user_id) if postcomment.user.firstname %> &nbsp says</small>
                 </div>
 
                 </div>
