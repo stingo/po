@@ -37,14 +37,21 @@
 <br>
 <br>
 
-
+<!-- SCROLL TO TOP -->
+        <a href="#" class="toTop"></a>
 
 	</section>
 </div>
 <!--=============================================== -->
     <footer class="footer-wrapper" role="contentinfo">
       <div class="footer">
-        <div class="pull-right text-muted"><small>Contact us</small></div>
+
+
+
+
+
+
+        <div class="pull-right text-muted" style="margin-right: 80px;"><small>Contact us</small></div>
         <div>PreachOut  &copy; 2016</div>
       </div>
     </footer><!-- /.FOOTER -->
@@ -53,3 +60,26 @@
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-568810505c304f97"></script>
+
+<script>
+    
+$(document).ready(function () {
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('.toTop').fadeIn();
+        } else {
+            $('.toTop').fadeOut();
+        }
+    });
+
+    $('.toTop').click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+
+});
+
+</script>
