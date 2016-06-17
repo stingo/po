@@ -38,7 +38,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 # set :keep_releases, 5
 
 
-
+set :passenger_restart_with_touch, true
 
 
 namespace :deploy do
