@@ -16,3 +16,4 @@
 //= require best_in_place.jquery-ui
 //= require jquery.inview.min.js
 //= require turbolinks
+//= require_tree .
