@@ -43,6 +43,9 @@ Devise.setup do |config|
   # The same considerations mentioned for authentication_keys also apply to request_keys.
   # config.request_keys = []
 
+  config.secret_key = '4fd2341488d37d3ca9222eaaae9ce2acc3c379b7103853113e6f9dbbc2c232324c77d9d2e42518af9d4720f72b4f72ec74de17d8228b842d563b7764de22a3f4'
+
+
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
