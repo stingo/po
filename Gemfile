@@ -33,7 +33,7 @@ gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
 
 gem 'country_select'
 
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave'
 
 gem "rmagick"
 
