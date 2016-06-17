@@ -17,7 +17,6 @@
 //= require jquery.inview.min.js
 //= require turbolinks
 //= require bootbox
-//= require bootstrap
 //= require bootstrap-editable
 //= require bootstrap-session-timeout
 //= require charCount
