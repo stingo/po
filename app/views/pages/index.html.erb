@@ -121,7 +121,7 @@
                             
                             <!-- BUTTON -->
                             <div class="button hidden-xs">
-                                <a href="#section1" class="btn btn-primary secondary-button">Learn More</a>
+                                <a href="#bottom" class="btn btn-primary secondary-button">Learn More</a>
                             </div>
                             <!-- /END BUTTON -->
                             
@@ -669,7 +669,14 @@
             jQuery(".status").fadeOut();
             jQuery(".preloader").delay(0).fadeOut("slow");
         })
+
+        $("a[href='#bottom']").click(function() {
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  return false;
+});
+
     </script>
+   
 
 
    

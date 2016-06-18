@@ -35,3 +35,4 @@
 //= require jquery.bootstrap.wizard
 //= require jquery.color
 //= require jquery.easypiechart
+//= require vendor
