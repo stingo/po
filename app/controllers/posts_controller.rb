@@ -53,7 +53,7 @@ class PostsController < ApplicationController
             if (@post.save) 
                 f.html { redirect_to posts_path, notice: "Post created!" }
             else
-                f.html { redirect_to posts_path, notice: "Error: Post Not Saved." }
+                f.html { redirect_to posts_path, notice: "Error: Couldn't create post with no text." }
             end
         end
     end

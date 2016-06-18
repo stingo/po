@@ -6,10 +6,11 @@ class Post < ActiveRecord::Base
 
  is_impressionable
 
-
+validates :content, presence: true,length: { maximum: 240 }, unless: ->(post){post.postcover.present?}
+validates :postcover, presence: true, unless: ->(post){post.content.present?}
 
   #validates :user_id, presence: true
-  #validates :content, presence: true, length: { maximum: 240 } # posts are capped at 240 chars.\
+  #validates :content, presence: true, length: { maximum: 240 } || :postcover, presence: true # posts are capped at 240 chars.\
 
   mount_uploader :postcover, PostcoverUploader
 
