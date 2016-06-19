@@ -1086,7 +1086,8 @@ strong,
    3.12 SECTION: CALL TO ACTION
 -----------------------------------------*/
 .call-to-action {
-    background: url('btbg.jpg') fixed no-repeat top center;
+    background: url('/assets/btbg.jpg') fixed no-repeat top center;
+    
     -webkit-background-size: cover;
     background-size: cover;
 }
