@@ -494,7 +494,8 @@ strong,
    3.1 SECTION: HOME / HEADER         
 -----------------------------------------*/
 .header {
-	background: url(fbg.jpg) no-repeat center top fixed;
+
+	background: image-url('/assets/fbg.jpg') no-repeat center top fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
@@ -1087,7 +1088,7 @@ strong,
 -----------------------------------------*/
 .call-to-action {
     background: url('/assets/btbg.jpg') fixed no-repeat top center;
-    
+
     -webkit-background-size: cover;
     background-size: cover;
 }
