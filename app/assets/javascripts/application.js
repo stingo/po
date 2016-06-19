@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery2
+//= require jquery
 //= require best_in_place
 //= require jquery_ujs
 //= require best_in_place.jquery-ui
@@ -36,4 +36,3 @@
 //= require jquery.color
 //= require jquery.easypiechart
 //= require vendor
-//= require jquery
