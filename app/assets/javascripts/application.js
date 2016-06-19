@@ -16,23 +16,6 @@
 //= require best_in_place.jquery-ui
 //= require jquery.inview.min.js
 //= require turbolinks
-//= require bootbox
-//= require bootstrap-editable
-//= require bootstrap-session-timeout
-//= require charCount
-//= require chartjs
-//= require clndr
-//= require dataTables.bootstrap
-//= require dataTables.tableTools
-//= require daterangepicker
-//= require dependencies
-//= require dropzone
-//= require epiceditor
-//= require fileinput
-//= require fullcalendar
-//= require imagesloaded.pkgd
-//= require jquery-minicolors
-//= require jquery.bootstrap.wizard
-//= require jquery.color
-//= require jquery.easypiechart
-//= require vendor
+//= require_tree .
+
+
