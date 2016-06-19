@@ -495,7 +495,8 @@ strong,
 -----------------------------------------*/
 .header {
 
-	background: image-url('/assets/fbg.jpg') no-repeat center top fixed;
+	
+	background: url(fbg.jpg) no-repeat center top fixed;
 	-webkit-background-size: cover;
 	background-size: cover;
 }
