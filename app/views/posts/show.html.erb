@@ -2,20 +2,13 @@
 
 <div class ="centered">
 
-<br />
-                  
-
-              
-
-                  
+<br />     
 <!--POST BODY-->
-
-                    <div class="col-md-5">
-
-                    <div class="paneloveride" style="height:100%" >
-                      <!-- illustration of product img -->
-                      
-                      <div class="text-center" style="padding:0px;line-height:20px;font-size:14px">
+<div class="col-md-5">
+<div class="paneloveride" style="height:100%;" >
+      
+      <!-- illustration of product img -->
+      <div class="text-center" style="padding:0px;line-height:20px;font-size:14px;">
 
         <div class="preach-img pushnav2 zindez222">
         <% if @post.postcover? %>
@@ -64,18 +57,11 @@
 
 
        <!--end-->
-
-       
-
-
-
 </div>
 </div>
 
 <div class="panel" style="z-index: 999 important!">
-
-
-         <small>
+    <small>
 
        <strong class="closeleft"><i class="fa fa-upload "></i><%= " " %><%= @post.user.firstname.split(" ").map(&:capitalize).join(" ") if @post.user.firstname %><%= " " %><%= @post.user.lastname.split(" ").map(&:capitalize).join(" ") if @post.user.lastname %></strong>
 
@@ -83,61 +69,28 @@
 
 
 <!--NAME ENDS-->
-
-
-
-       <div class="dropdown">
-
-        <button class="btn btn-xs btn-default btn-icon dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v rediconcolor"></i></button>
-                          <ul class="dropdown-menu dropdown-menu-right pullup-small">
-                           
-
-                            <li>
-                            
-                            
-      <% if @post.user == current_user -%>
-  
-    <%= link_to 'Edit this post', edit_post_path(@post), class: "btn btn-clean padding10" %>
-    </li>
-   
-    <% end %> 
-
-     <li>
-     <% if @post.user == current_user -%>
-
-     
-
-
-    <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-clean padding10" %>
-
-  <% end %>   
-
-                           
-                             </li>
-
-
-                            <li><a href="#">report copyright infringement</a></li>
-                             
-
-
-                            <li><a href="#">Report spam or abuse</a></li>
-                            
-                          </ul>
+   <div class="dropdown">
+    <button class="btn btn-xs btn-default btn-icon dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v rediconcolor"></i></button>
+          <ul class="dropdown-menu dropdown-menu-right pullup-small">
+            <li>                            
+              <% if @post.user == current_user -%>  
+                <%= link_to 'Edit this post', edit_post_path(@post), class: "btn btn-clean padding10" %>
+                <% end %> 
+            </li>
+            <li>
+                  <% if @post.user == current_user -%>
+                      <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-clean padding10" %>
+                  <% end %> 
+            </li>
+            <li><a href="#">report copyright infringement</a></li>
+            <li><a href="#">Report spam or abuse</a></li>
+          </ul>
   </div>
-
-
-  &nbsp &nbsp 
+        &nbsp; &nbsp; 
 
         <small>
 
        <strong><i class="fa fa-eye ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
-
-       
-
-      
-
-  
-
        </small>   
   
 </div>
@@ -153,18 +106,14 @@
                         <i class="fa fa-share-alt "></i> Share this
                       </a>
 
-
-
                     </h3><!-- /panel-title -->
                   </div><!-- /panel-heading -->
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
-                     
-
+    
                       <!-- Go to www.addthis.com/dashboard to customize your tools -->
                       <div class="addthis_sharing_toolbox"></div>
-
-                      
+              
                     </div><!-- /panel-body -->
                   </div><!-- /panel-collapse -->
                 </div><!-- /panel -->
@@ -173,14 +122,10 @@
                   <div class="panel-heading">
                     <h3 class="panel-title">
 
-
-                    
-
 <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">
                         More
                       </a>
-                
-                
+               
                     </h3><!-- /panel-title-->
                   </div><!-- /panel-heading-->
                   <div id="collapseTwo" class="panel-collapse collapse">
@@ -189,25 +134,15 @@
                     </div><!-- /panel-body-->
                   </div><!-- /panel-collapse-->
                 </div><!-- /panel-->
-
-                
+              
               </div><!-- /panel-group -->
 <!-- End of collapse-->
-
-
-    
-
-
-
                     </div>
                     </div>
-
-                    
-
 
 <!--COMMETS STARTS-->
                     <div class="col-md-7 innerscroll">
-                    <div data-toggle="slimScroll" style="height:450px" data-color="#48CFAD" data-rail-color="#48CFAD" data-allow-page-scroll="false" data-rail-visible="true">
+                    <div data-toggle="slimScroll" style="height:450px;" data-color="#48CFAD" data-rail-color="#48CFAD" data-allow-page-scroll="false" data-rail-visible="true">
                       <div class="clearfix">
 
                        <div class="paneloveride" data-fill-color="true">
@@ -217,10 +152,7 @@
                         <div class="pullup-small" data-fill-color="true">
 
                        <div><%= render 'postingcomments' %></div>
-
-
-                        
-                      
+   
                       </div>
                     </div>
 
