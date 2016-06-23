@@ -10,6 +10,8 @@ set :repo_url, 'git@github.com:stingo/po.git'
 # Default deploy_to directory is /var/www/my_app_name
  set :deploy_to, '/home/deploy/po'
 
+
+
 # Default value for :scm is :git
 # set :scm, :git
 
@@ -36,6 +38,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 # Default value for keep_releases is 5
 set :keep_releases, 2
+
+set :deploy_via, :remote_cache
 
 
 set :passenger_restart_with_touch, true
