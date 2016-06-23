@@ -52,9 +52,9 @@ set :deploy_via, :remote_cache
     #on roles(:app), in: :sequence, wait: 5 do
      # execute :touch, release_path.join('tmp/restart.txt')
     #end
-  end
+  #end
 
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 
-end
+#end
