@@ -58,3 +58,4 @@ set :deploy_via, :remote_cache
   after :finishing, 'deploy:cleanup'
 
 end
+end
