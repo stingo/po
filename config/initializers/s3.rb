@@ -20,7 +20,7 @@ CarrierWave.configure do |config|
     provider:              'AWS',
       aws_access_key_id:     ENV["AKIAIKSQ6UQ73NZRBMLQ"],
       aws_secret_access_key: ENV["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"],
-      region: 'us-east-1'                        # optional, defaults to 'us-east-1'
+      region: 'Ireland'                        # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'pout16'               # required
   #config.fog_host       = 'https://assets.example.com'           # optional, defaults to nil
@@ -28,5 +28,13 @@ CarrierWave.configure do |config|
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
 
-
+CarrierWave.configure do |config|
+  config.fog_credentials = {
+      :provider               => 'AWS',
+      :aws_access_key_id      => Rails.application.secrets.amazon_access_key_id,
+      :aws_secret_access_key  => Rails.application.secrets.amazon_secret_access_key,
+      :region                 => 'us-west-1' # Change this for different AWS region. Default is 'us-east-1'
+  }
+  config.fog_directory  = "pout16"
+end
  
