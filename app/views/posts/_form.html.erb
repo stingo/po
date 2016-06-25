@@ -103,15 +103,14 @@
           
          
 <div class="field">
-  <%= f.label :image %>
-  <%= f.file_field :postcover, :class => "form-control" %> 
-              </div>
-    
-              
-          
-
-<br>
-
+    <%= f.label :add_image %><br>
+    <%= f.file_field :postcover %>
+    <% if f.object.postcover? %>
+      <%= image_tag f.object.postcover.thumb.url %>
+      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.check_box :remove_postcover %> 
+    <% end %>
+  </div>
           
 
          

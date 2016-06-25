@@ -70,21 +70,34 @@ class PostsController < ApplicationController
 
     end
 
-    def destroy
+ def destroy
+ post = Post.find(params[:id])
 
 
-post = Post.find(params[:id])
-
-
-
-
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-     end
+ @post.destroy
+ respond_to do |format|
+ format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
+ format.json { head :no_content }
+ 
+ end
+ end
      
+
+#def remove_postcover
+#@remember_id = @postcover.id
+#@postcover.destroy
+#Delete empty folder from app.
+#FileUtils.remove_dir("#{Rails.root}/path_to/file/#{@remember_id}")
+#respond_to do |format|
+#format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+#format.json { head :no_content }
+#end
+#end
+
+
+
+
+
 
 def edit
 
@@ -96,7 +109,10 @@ def edit
 
    def update
     @post = Post.find(params[:id])
+  
+    
     if @post.update_attributes(post_params)
+
         flash[:notice] = "Post succesfully updated!"
         redirect_to posts_path
       # Handle a successful update.
@@ -132,7 +148,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :postcategory_id)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id)
         
     end
 

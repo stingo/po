@@ -99,7 +99,14 @@
               <span class="input-group-addon"><i class="fa fa-image"></i></span>
 
           <%= f.label :add_profile_photo %><br>
-    <%= f.file_field :userphoto %><br>
+         <%= f.file_field :userphoto %><br>
+
+    <% if f.object.userphoto? %>
+      <%= image_tag f.object.userphoto.large.url, :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35" %>
+      <%= f.label :remove_profile_photo, :class => "lead_small"  %>
+      <%= f.check_box :remove_userphoto %> 
+    <% end %>
+ 
 
      </div>
           </div><!-- /.form-group -->
@@ -113,7 +120,13 @@
               <%# f.label :email %>
 
            <%= f.label :add_profile_cover %><br>
-    <%= f.file_field :usercover %><br>
+          <%= f.file_field :usercover %><br>
+
+          <% if f.object.usercover? %>
+      <%= image_tag f.object.usercover.large.url, :class => "usercoverformimg" %>
+      <%= f.label :remove_profile_cover, :class => "lead_small"  %>
+      <%= f.check_box :remove_usercover %> 
+    <% end %>
 
 
             </div>

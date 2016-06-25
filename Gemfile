@@ -46,7 +46,9 @@ gem 'impressionist'
 
 gem 'will_paginate', '~> 3.1.0'
 
-gem "fog"
+gem 'fog-aws'
+
+gem 'fog'
 
 gem 'jquery-turbolinks'
 

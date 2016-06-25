@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :postcomments
+
   devise_for :users
   get 'posts/new'
 

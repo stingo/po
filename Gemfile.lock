@@ -379,6 +379,7 @@ DEPENDENCIES
   country_select
   devise
   fog
+  fog-aws
   font-awesome-rails (~> 4.5, >= 4.5.0.1)
   friendly_id (~> 5.1)
   impressionist
