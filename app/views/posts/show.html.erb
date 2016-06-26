@@ -84,11 +84,13 @@
 
 
 <!--NAME ENDS-->
+
    <div class="dropdown">
+   <% if @post.user == current_user -%> 
     <button class="btn btn-xs btn-default btn-icon dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v rediconcolor"></i></button>
           <ul class="dropdown-menu dropdown-menu-right pullup-small">
             <li>                            
-              <% if @post.user == current_user -%>  
+               
                 <%= link_to 'Edit this post', edit_post_path(@post), class: "btn btn-clean padding10" %>
                 <% end %> 
             </li>

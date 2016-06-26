@@ -68,13 +68,14 @@
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 text-right pull-right">
 
                 <div class="dropdown pull-right">
+                 <% if postcomment.user == current_user -%>
                           <button class="btn btn-xs btn-default btn-icon dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><i class="fa fa-ellipsis-v"></i></button>
                           <ul class="dropdown-menu dropdown-menu-right">
                            
 
                             <li>
                             
-                            <% if postcomment.user == current_user -%>
+                           
                             <h5><%= link_to 'Delete comment', postcomment, method: :delete, data: { confirm: 'Are you sure?' }, class: "label label-danger margin-left10" %></h5>
                             
                             
