@@ -62,14 +62,15 @@
 
 
 <!--Get category name for each post-->
-     
+    
 <div class="pull-left">
 
 <small class="media-heading"><%= link_to (post.user.firstname), user_path(post.user_id) if post.user.firstname %></span><span>&nbsp<%= link_to (post.user.lastname), user_path(post.user_id) if post.user.lastname %></span></small> 
 <br>
 
-
-
+<% Postcategory.all.limit(1).each do |postcategory| %> 
+<strong style="color: #000000;"><%=  link_to (post.postcategory.name), posts_path(postcategory: postcategory.name), :class =>"text-muted pull-left closebtn" %></strong>
+<% end %>
 </div>
 
 <!--end-->
