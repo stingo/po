@@ -39,7 +39,17 @@
     
 <div class="pull-left">
 
-<small class="media-heading"><%= link_to (@post.user.firstname), user_path(@post.user_id) if @post.user.firstname %></span><span>&nbsp<%= link_to (@post.user.lastname), user_path(@post.user_id) if @post.user.lastname %></span></small> 
+    <small>
+
+       <strong class="media-heading"><i class="fa fa-upload "></i> 
+       <%= " " %><%= link_to (@post.user.firstname.split(" ").map(&:capitalize).join(" ")), user_path(@post.user_id) if @post.user.firstname %>
+
+         <%= " " %><%= link_to (@post.user.lastname.split(" ").map(&:capitalize).join(" ")), user_path(@post.user_id) if @post.user.lastname %>
+        </strong>
+
+       </small>
+
+
 <br>
 <% Postcategory.all.limit(1).each do |postcategory| %> 
 <strong style="color: #000000;"><%=  link_to (@post.postcategory.name), posts_path(postcategory: postcategory.name), :class =>"text-muted pull-left closebtn-5" %></strong>
@@ -61,11 +71,16 @@
 </div>
 
 <div class="panel" style="z-index: 999 important!">
-    <small>
+    
+    <!--small>
 
-       <strong class="closeleft"><i class="fa fa-upload "></i><%= " " %><%= @post.user.firstname.split(" ").map(&:capitalize).join(" ") if @post.user.firstname %><%= " " %><%= @post.user.lastname.split(" ").map(&:capitalize).join(" ") if @post.user.lastname %></strong>
+       <strong class="closeleft"><i class="fa fa-upload "></i> 
+       <%# " " %><%# link_to (@post.user.firstname.split(" ").map(&:capitalize).join(" ")), user_path(@post.user_id) if @post.user.firstname %>
 
-       </small>
+         <%# " " %><%# link_to (@post.user.lastname.split(" ").map(&:capitalize).join(" ")), user_path(@post.user_id) if @post.user.lastname %>
+        </strong>
+
+       </small-->
 
 
 <!--NAME ENDS-->
@@ -82,15 +97,15 @@
                       <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-clean padding10" %>
                   <% end %> 
             </li>
-            <li><a href="#">report copyright infringement</a></li>
-            <li><a href="#">Report spam or abuse</a></li>
+            <!--li><a href="#">report copyright infringement</a></li>
+            <li><a href="#">Report spam or abuse</a></li-->
           </ul>
   </div>
         &nbsp; &nbsp; 
 
         <small>
 
-       <strong><i class="fa fa-eye ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
+       <strong><i class="fa fa-eye fa-2x ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
        </small>   
   
 </div>
@@ -103,12 +118,11 @@
                     <h3 class="panel-title">
 
                       <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">
-                        <i class="fa fa-share-alt "></i> Share this
-                      </a>
+                        <i class="fa fa-share-alt "></i> PreachOut </a>
 
                     </h3><!-- /panel-title -->
                   </div><!-- /panel-heading -->
-                  <div id="collapseOne" class="panel-collapse collapse in">
+                  <div id="collapseOne" class="panel-collapse collapse">
                     <div class="panel-body">
     
                       <!-- Go to www.addthis.com/dashboard to customize your tools -->
@@ -118,7 +132,7 @@
                   </div><!-- /panel-collapse -->
                 </div><!-- /panel -->
 
-                <div class="panel">
+                <!--div class="panel">
                   <div class="panel-heading">
                     <h3 class="panel-title">
 
@@ -126,14 +140,14 @@
                         More
                       </a>
                
-                    </h3><!-- /panel-title-->
-                  </div><!-- /panel-heading-->
-                  <div id="collapseTwo" class="panel-collapse collapse">
+                    </h3>
+                  </div>
+                  <div id="collapseTwo" class="panel-collapse collapse in">
                     <div class="panel-body">
                       <div>Something</div>
-                    </div><!-- /panel-body-->
-                  </div><!-- /panel-collapse-->
-                </div><!-- /panel-->
+                    </div>
+                  </div>
+                </div-->
               
               </div><!-- /panel-group -->
 <!-- End of collapse-->
