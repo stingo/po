@@ -79,10 +79,16 @@
 
 <br>
 
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%=  link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) %></strong>
+<% Postcategory.all.limit(1).each do |postcategory| %> 
+<strong style="color: #000000;"><%=  link_to (post.postcategory.name), posts_path(postcategory: postcategory.name), :class =>"text-muted pull-left closebtn" %></strong>
+<% end %>
 </div>
 
 <!--end-->
+
+
+              
+
 
 
 
