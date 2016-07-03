@@ -114,7 +114,7 @@ def edit
     if @post.update_attributes(post_params)
 
         flash[:notice] = "Post succesfully updated!"
-        redirect_to posts_path
+        redirect_to post_path
       # Handle a successful update.
     else
       render :action => :edit

@@ -57,6 +57,12 @@ class UsersController < ApplicationController
    
    end
 
+   def upvote
+    @user.upvote_by current_user
+    redirect_to :back
+     
+   end
+
 
 
 private

@@ -10,8 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require 'masonry/transitions'
+ *= require_tree .
  */
 
 @import "normalize";
@@ -204,6 +205,11 @@ margin-bottom: -20px;
 }
 
 .closebtn-5{
+  margin-top: -5px;
+  font-size: 11px;
+
+}
+.closebtn-categories{
   margin-top: -5px;
   font-size: 11px;
 
@@ -895,7 +901,40 @@ possition:fixed;
 
 
 
+.transitions-enabled.masonry,
+.transitions-enabled.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+       -o-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
 
+.transitions-enabled.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.transitions-enabled.masonry  .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+       -o-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+
+/* disable transitions on container */
+.transitions-enabled.infinite-scroll.masonry {
+  -webkit-transition-property: none;
+     -moz-transition-property: none;
+      -ms-transition-property: none;
+       -o-transition-property: none;
+          transition-property: none;
+}
 
 
 
@@ -903,19 +942,28 @@ possition:fixed;
 *, *:before, *:after {box-sizing:  border-box !important;}
 
 
-.rowp {
+#rowp {
  -moz-column-width: 18em;
  -webkit-column-width: 18em;
  -moz-column-gap: 1em;
- -webkit-column-gap:1em; 
+ -webkit-column-gap:1em;
+ margin: 0 auto; 
   
 }
 
-.item {
+.box {
  display: inline-block;
  padding:  5px;
  width:  100%; 
 }
+
+.box img{
+ display: inline-block;
+ padding:  5px;
+ 
+}
+
+
 .black {
  
  padding-left:  7px;

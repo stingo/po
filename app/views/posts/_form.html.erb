@@ -83,7 +83,7 @@
            <div class="field"> 
            <%= f.label :category %><br>
 
-<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "dropdown-toggle" } %>
  </div>
 
  <br>
@@ -112,7 +112,7 @@
     <% end %>
   </div>
           
-
+  <br>
          
   
   <div class="actions">

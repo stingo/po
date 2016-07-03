@@ -51,9 +51,11 @@
 
 
 <br>
-<% Postcategory.all.limit(1).each do |postcategory| %> 
-<strong style="color: #000000;"><%=  link_to (@post.postcategory.name), posts_path(postcategory: postcategory.name), :class =>"text-muted pull-left closebtn-5" %></strong>
-<% end %>
+
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%=  link_to @post.postcategory.name, posts_path(postcategory: @post.postcategory.name) %></strong>
+
+
+
 </div>
 
 
@@ -96,7 +98,7 @@
             </li>
             <li>
                   <% if @post.user == current_user -%>
-                      <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-clean padding10" %>
+                      <%= link_to 'Delete this post', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "label-danger padding10" %>
                   <% end %> 
             </li>
             <!--li><a href="#">report copyright infringement</a></li>

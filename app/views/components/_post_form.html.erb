@@ -56,7 +56,8 @@ form .exceeded{color:#ff0000;}
 
                                 <li> 
 
-<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {promt: "Choose a category" }, input_html: { class: "control-label" } %>
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "control-label" } %>
+
  </li>
                                 
               </ul><!-- /.nav nav-pills -->
