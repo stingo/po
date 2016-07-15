@@ -79,10 +79,16 @@
 
 <br>
 
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%#  link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) %></strong>
+<% Postcategory.all.each do |postcategory| %>
+
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) %></strong>
+
+<% end %>
 </div>
 
 <!--end-->
+
+
 
 
 
