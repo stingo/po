@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :postcomments
+  resources :uploads
   devise_for :users
   get 'posts/new'
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
       member do
       post :repost
+      
     end
 
   end
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
     
   
   resources :users do
+  put "follow", to: "user#upvote"
 
 
   end

@@ -14,13 +14,32 @@ class PostsController < ApplicationController
     #end
 
     def index
-    @posts = Post.paginate(:page => params[:page]) # replaces Post.all
-    @newPost = Post.new
+
+      @newPost = Post.new
+
+     
+
+      if params[:postcategory].blank?
+      #@posts = Post.all.order("created_at DESC")
+       @posts = Post.paginate(:page => params[:page]).order("created_at DESC") # replaces Post.all
+
+    else
+      @postcategory_id = Postcategory.find_by(name: params[:postcategory]).id
+      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page])
+    end
+
+
+
+
+    #@posts = Post.paginate(:page => params[:page]) # replaces Post.all
+    #@newPost = Post.new
     respond_to do |format|
       format.html
       format.js # add this line for your js template
     end
-  end
+    end
+
+ 
 
 
     def new 
@@ -34,7 +53,7 @@ class PostsController < ApplicationController
             if (@post.save) 
                 f.html { redirect_to posts_path, notice: "Post created!" }
             else
-                f.html { redirect_to posts_path, notice: "Error: Post Not Saved." }
+                f.html { redirect_to posts_path, notice: "Error: Couldn't create post with no text." }
             end
         end
     end
@@ -51,21 +70,34 @@ class PostsController < ApplicationController
 
     end
 
-    def destroy
+ def destroy
+ post = Post.find(params[:id])
 
 
-post = Post.find(params[:id])
-
-
-
-
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-     end
+ @post.destroy
+ respond_to do |format|
+ format.html { redirect_to posts_path, notice: 'Post was successfully destroyed.' }
+ format.json { head :no_content }
+ 
+ end
+ end
      
+
+#def remove_postcover
+#@remember_id = @postcover.id
+#@postcover.destroy
+#Delete empty folder from app.
+#FileUtils.remove_dir("#{Rails.root}/path_to/file/#{@remember_id}")
+#respond_to do |format|
+#format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+#format.json { head :no_content }
+#end
+#end
+
+
+
+
+
 
 def edit
 
@@ -77,9 +109,12 @@ def edit
 
    def update
     @post = Post.find(params[:id])
+  
+    
     if @post.update_attributes(post_params)
+
         flash[:notice] = "Post succesfully updated!"
-        redirect_to posts_path
+        redirect_to post_path
       # Handle a successful update.
     else
       render :action => :edit
@@ -113,7 +148,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id)
         
     end
 

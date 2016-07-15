@@ -8,9 +8,10 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
+gem "therubyracer"
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -33,7 +34,7 @@ gem 'font-awesome-rails', '~> 4.5', '>= 4.5.0.1'
 
 gem 'country_select'
 
-gem 'carrierwave', '~> 0.10.0'
+gem 'carrierwave'
 
 gem "rmagick"
 
@@ -44,6 +45,14 @@ gem 'friendly_id', '~> 5.1'
 gem 'impressionist'	
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'fog-aws'
+
+gem 'fog'
+
+gem 'jquery-turbolinks'
+
+gem 'masonry-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -62,8 +71,19 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1'
+  gem 'capistrano-passenger'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  
+
+# Add this if you're using rbenv
+# gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
+
 end
 

@@ -1,35 +1,159 @@
+
+  
+
+
 <%= form_for(@user) do |f| %>
   
-  
 
-  
- <div class="field">
 
-  <%= f.label :displayname %>
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
 
-  <%= f.text_field :displayname %><br>
+  <title>Editing Profile</title>
+
+
+  <!-- favicon.ico and apple-touch-icon.png -->
+  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="images/favicons/manifest.json">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="msapplication-TileImage" content="images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'>
+
+  <!-- build:css(.tmp) styles/bootstrap.css -->
+ 
+</head>
+<body class=" ">
+  <!--[if lt IE 9]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <main class="signin-wrapper">
+    <div class="tab-content">
+   
+        
+     
+      <div class="tab-pane fade in active" id="signin">
+        <form id="signinForm" action="index.html" role="form">
+          <p class="text-center lead">Editing Profile</p>
+          
+          <!--div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+              <%# f.label :email %>
+             
+            
+            <%# f.label :displayname %>
+
+            <%# f.text_field :displayname, :class => "form-control" %><br>
     
+              
+            </div>
+          </div><!/.form-group -->
+
+          <div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+
+
+          <%= country_select("user", "country") %>
+
+            </div>
+          </div><!-- /.form-group -->
+
+
+
+          <div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-map"></i></span>
+              <%# f.label :email %>
+         
+
+            <%= f.label :add_city %> <br>
+            <%= f.text_field :city, :autofocus => true, :placeholder => 'Your nearest City', :class => "form-control" %>
     
-    <%= f.label :add_city %>
-    <%= f.text_field :city %>
+              
+            </div>
+          </div><!-- /.form-group -->
 
 
-    <%= country_select("user", "country") %>
 
-    <%= f.label :add_profile_photo %><br>
-    <%= f.file_field :userphoto %><br>
 
-    <%= f.label :add_profile_cover %><br>
-    <%= f.file_field :usercover %><br>
+          <div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-image"></i></span>
 
-  </div>
-  <div class="field ">
+          <%= f.label :add_profile_photo %><br>
+         <%= f.file_field :userphoto %><br>
+
+    <% if f.object.userphoto? %>
+      <%= image_tag f.object.userphoto.large.url, :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35" %>
+      <%= f.label :remove_profile_photo, :class => "lead_small"  %>
+      <%= f.check_box :remove_userphoto %> 
+    <% end %>
+ 
+
+     </div>
+          </div><!-- /.form-group -->
+
+
+
+
+          <div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+              <%# f.label :email %>
+
+           <%= f.label :add_profile_cover %><br>
+          <%= f.file_field :usercover %><br>
+
+          <% if f.object.usercover? %>
+      <%= image_tag f.object.usercover.large.url, :class => "usercoverformimg" %>
+      <%= f.label :remove_profile_cover, :class => "lead_small"  %>
+      <%= f.check_box :remove_usercover %> 
+    <% end %>
+
+
+            </div>
+          </div><!-- /.form-group -->
+
+          <div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-globe"></i></span>
      <%= f.label :intro %><br>
-     <%= f.text_area :bio, :autofocus => true, :placeholder => 'Tell us bout yourself... in twenty words maximum', :class => "form-control" %>
-  </div>
+     <%= f.text_area :bio, :autofocus => true, :placeholder => 'Tell us about yourself... in twenty words maximum', :class => "form-control" %>
+   </div>
+          </div><!-- /.form-group -->
+
   <br>
-  </div>
+ 
   
   
   <%= f.submit "Save changes", class: "btn btn-primary" %>
 <% end %>
+<br>
+
+
+
+
+
+
+
+          
+
+         

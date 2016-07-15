@@ -29,11 +29,15 @@ form .exceeded{color:#ff0000;}
       </div>
       <div class="col-sm-11">
         <%= form_for(@newPost) do |f| %>
+
+
+
+
         
               <div class="field" style="margin-left: 10px;">
 
               <div class="col-sm-12">
-                <%= f.text_area :content, autofocus: true, placeholder: "What's inspirational?...Post a text, image or both", class: "form-control has-success" %>
+                <%= f.text_area :content, autofocus: true, placeholder: "What's inspirational?...add a text up to 240 words, image or both", class: "form-control has-success" %>
                 </div>
 
                 
@@ -48,6 +52,13 @@ form .exceeded{color:#ff0000;}
                                   
 
                                 </li>
+
+
+                                <li> 
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "control-label" } %>
+
+ </li>
                                 
               </ul><!-- /.nav nav-pills -->
 

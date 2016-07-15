@@ -1,27 +1,38 @@
 class Post < ActiveRecord::Base
 
-  self.per_page = 15
+  self.per_page = 8
 
   
 
  is_impressionable
 
-
+validates :content, presence: true,length: { maximum: 240 }, unless: ->(post){post.postcover.present?}
+validates :postcover, presence: true, unless: ->(post){post.content.present?}
 
   #validates :user_id, presence: true
-  validates :content, presence: true, length: { maximum: 240 } # posts are capped at 240 chars.\
+  #validates :content, presence: true, length: { maximum: 240 } || :postcover, presence: true # posts are capped at 240 chars.\
 
   mount_uploader :postcover, PostcoverUploader
 
+  after_commit :remove_postcover!, on: :destroy
+  #after_commit :delete_empty_dirs!, on: :destroy
+
+
   belongs_to :user
   belongs_to :post
+  belongs_to :postcategory
 
   has_many :likes, dependent: :destroy
 
   has_many :postcomments, dependent: :destroy
 
 
- 
+   #def delete_empty_dirs
+    #path = File.expand_path(store_dir, root)
+    #Dir.rmdir(path)
+  #rescue
+    #true
+  #end
 
 
 

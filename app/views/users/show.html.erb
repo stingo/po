@@ -39,7 +39,7 @@
               <div class="pull-right">
                 <!--a data-toggle="modal" href="#" data-scripts="_includes/setups.js" data-target="#templateSetup" title="Template Setups" aria-label="template setups" class="btn btn-sm mr-2x btn-default"--><span>
                 <% if user_signed_in? %>
-                <%= link_to edit_user_path(current_user) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#337ab7"></i> <% end %></span>
+                <%= link_to edit_user_path(current_user) do %><span class="btn btn-sm mr-2x btn-default"> <i class="fa fa-pencil fa-2x" style="color:#17AA1C"></i>Update profile <% end %></span>
 
                 <% else %> <% end %>
 
@@ -53,7 +53,7 @@
                   <% if @user.userphoto? %>
         <%=link_to (image_tag @user.userphoto.url(:small), :class => "kit-avatar kit-avatar-128 no-padding border-white pull-left"), @user %>
         <% else %> 
-        <%= image_tag("fallback/unknown-profile.jpg", :class => "kit-avatar kit-avatar-96 border-white centered") %>
+        <%= image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white centered") %>
 
 
        <% end %> 
@@ -181,10 +181,20 @@
 
             <div class="col-sm-12">
 
-            <div class="frontsize"><h1><strong>Check out what’s trending for free on PreachOut</strong></h1></div>
-            <br />
-              
-              <div class="panel">
+            
+<div class="panel">
+        
+
+        <div class="centered fieldfix">
+        <%= render '/components/post_form' %><br><br>
+        </div>
+        <br><br>
+
+
+
+
+
+
                 <ul class="nav nav-tabs nav-justified" id="demo1-tabs">
                   <li class="active"><a href="#botabs1" data-toggle="tab">Posts</a></li>
                   <li><a href="#botabs2" data-toggle="tab"><%= "Favorite".pluralize(@user.likes.count) %> &nbsp <%= @user.likes.count %></a></li>
@@ -204,26 +214,56 @@
 
           
 
-
+<div class="preach-img">
           <% if post.postcover? %>
         <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive preachedge-img centered box-hover"), post_path(post) %>
 
-
-        <% else %> 
-        <%= image_tag("noimage.jpg", :class => "img-responsive preachedge-img centered   box-hover") %>
-
         <% end %>
+
+        </div>
+
+        
+
+
+        <div class="lead_small preach-content">
+
+              <%= link_to (post.content), post %>
+
+        </div>
 
 
         <div class="embed-extend-item">
-                  <a href="#" class="kit-avatar kit-avatar-96 border-white pull-left">
-                    <img src="images/dummy/uifaces11.jpg" alt="avatar">
-                  </a>
-                  <h3 class="subhead" style="color:#337ab7">Title<%# link_to (post.title.split(" ").map(&:capitalize).join(" ")),
+    
 
 
-                   post_path(song) %> <small><div class="pull-left"><i class="fa fa-tags"> TAGGED:</i>&nbsp<%#raw tag_links(song.all_tags) %><div></small></h3>
-        </div><!-- /.kit-cover-headline -->
+  <!--Profilephoto-->
+          <% if post.user.userphoto? %>
+        <%= link_to (image_tag(post.user.userphoto.url(:large), :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+         
+
+        <% else %> 
+        <%= link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-96 border-white pull-left thumb35")), user_path(post.user_id) %>
+
+
+       <% end %> 
+
+       <!--end of Profilephoto-->
+
+
+<!--Get category name for each post-->
+
+
+
+
+<!--end-->
+
+        </div>
+                  
+
+
+
 
                   <div class="panel-body">
                   <div class="row">
@@ -441,12 +481,7 @@
     <!-- ============================================
     FOOTER SECTION
     =============================================== -->
-    <footer class="footer-wrapper" role="contentinfo">
-      <div class="footer">
-        <div class="pull-right text-muted"><small>Currently v1.2</small></div>
-        <div>Wrapkit Template  &copy; 2015</div>
-      </div>
-    </footer><!-- /.FOOTER -->
+    
 
   </main><!-- /#MAIN -->
 

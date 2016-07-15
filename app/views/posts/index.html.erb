@@ -1,19 +1,8 @@
-
-
-
-
 <div class="container">
-
-
 
 <div class ="centered">
 
-
-
-
-    
-
-    <div class="centered fieldfix">
+   <div class="centered fieldfix">
         <%= render '/components/post_form' %><br><br>
         </div>
 
@@ -24,14 +13,18 @@
 <br />
 <br />
 
+<div class= "container">
+     
+        <%= link_to "All Posts", root_path %>
+       <% Postcategory.all.each do |postcategory| %>
+          <%=  link_to postcategory.name, posts_path(postcategory: postcategory.name) %>
+     
+  <% end %>
 
+  </div>
 
 
 <br />
-
-
-
-
 
      <!-- ============================================
           HEADER
@@ -44,11 +37,12 @@
 <!--posts starts-->
  <div class="fieldfix centered">
    
-  <% @posts.each_slice(6) do |post| %> 
-          <div class="rowp">
+
+          <div id="rowp" class="transitions-enabled">
           <% @posts.each do |post| %>
-          <div class="item preachedge">
+          <div class="box preachedge">
           <div class="panel preachedge po-slim">
+
 
 
   <%= render partial: "posts/#{post.post_type}", locals: {post: post} %>
@@ -65,7 +59,7 @@
         </div><!-- panel -->
         <% end %>
           </div>
-          <% end %>
+        
 
 
 
@@ -74,12 +68,7 @@
 
 
 
-
-
    <%# link_to 'Load More Posts', posts_path(:page => @posts.next_page), :class => 'load-more-posts', :remote => true if @posts.next_page %>
-
-
-
 
 <!--preaches ends-->   
 
@@ -89,4 +78,17 @@
 <br />
 <br />
  <%= will_paginate @posts %>
+
+ <script>
+
+
+ $('rowp').masonry({
+  // options...
+  isAnimated: !Modernizr.csstransitions
+});
+   
+
+ </script>
+
+ 
 
