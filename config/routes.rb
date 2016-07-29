@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :postcategory
   resources :postcomments
   resources :uploads
   devise_for :users
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :posts do
 
   resources :postcomments
+  resources :postcategories
   
   resource :like, module: :posts
 

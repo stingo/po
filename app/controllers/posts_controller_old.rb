@@ -26,7 +26,6 @@ class PostsController < ApplicationController
     else
       @postcategory_id = Postcategory.find_by(name: params[:postcategory]).id
       @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page])
-      
     end
 
 
@@ -45,23 +44,13 @@ class PostsController < ApplicationController
 
     def new 
         @post = current_user.post.build
-        #@post = Post.new
-        @postcategories = Postcategory.all.map{ |c| [c.name, c.id] }
-
-
-      
-end
-  
+    end
     
     def create
-       
-     @post = current_user.posts.build(post_params)
-        #@post = Post.new(post_params)
-        #@post.postcategory_id = params[:postcategory_id]
- 
-       
+        @post = Post.new(post_params)
+        @post.user_id = current_user.id # assign the post to the user who created it.
         respond_to do |f|
-            if @post.save 
+            if (@post.save) 
                 f.html { redirect_to posts_path, notice: "Post created!" }
             else
                 f.html { redirect_to posts_path, notice: "Error: Couldn't create post with no text." }
@@ -69,17 +58,9 @@ end
         end
     end
 
-
-
-
-
-
-
-
-
     def show
-    	impressionist(@post)
-    	@post = Post.find(params[:id])
+      impressionist(@post)
+      @post = Post.find(params[:id])
         #impressionist(@post)
 
 
@@ -120,20 +101,14 @@ end
 
 def edit
 
-    #@post = Post.find(params[:id])
-    @postcategories = Postcategory.all.map{ |c| [c.name, c.id] }
+    @post = Post.find(params[:id])
     
 
 
   end
 
    def update
-
-    @post.postcategory_id = params[:postcategory_id]
-
-
-
-    
+    @post = Post.find(params[:id])
   
     
     if @post.update_attributes(post_params)
@@ -173,7 +148,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_name, :postcategory_id)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id)
         
     end
 

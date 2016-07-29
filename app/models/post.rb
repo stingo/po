@@ -2,7 +2,13 @@ class Post < ActiveRecord::Base
 
   self.per_page = 8
 
-  
+  belongs_to :user
+  belongs_to :post
+  belongs_to :postcategory
+
+  has_many :likes, dependent: :destroy
+
+  has_many :postcomments, dependent: :destroy
 
  is_impressionable
 
@@ -18,13 +24,7 @@ validates :postcover, presence: true, unless: ->(post){post.content.present?}
   #after_commit :delete_empty_dirs!, on: :destroy
 
 
-  belongs_to :user
-  belongs_to :post
-  belongs_to :postcategory
 
-  has_many :likes, dependent: :destroy
-
-  has_many :postcomments, dependent: :destroy
 
 
    #def delete_empty_dirs
