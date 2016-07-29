@@ -84,11 +84,10 @@
 
 
 
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%  link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) %> </strong>
+
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) if post.postcategory_id %> </strong>
 
 <%# link_to Postcategory.find(post.postcategory_id).name, postcategory_path(post.postcategory_id) %>
-
-
 
 
 
