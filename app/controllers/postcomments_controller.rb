@@ -36,8 +36,11 @@ class PostcommentsController < ApplicationController
         format.html { redirect_to @post, notice: 'Comment was successfully created.' }
         format.json { render json: @postcomment, status: :created, location: @postcomment }
       else
-        format.html { render action: "new" }
-        format.json { render json: @postcomment.errors, status: :unprocessable_entity }
+        #format.html { render action: "new" }
+
+        format.html { redirect_to @post, notice: "Error: Couldn't create a blank comment.." }
+        format.json { render json: @postcomment.errors, status: :created, location: @postcomment }
+        
       end
     end
   end

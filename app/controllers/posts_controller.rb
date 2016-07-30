@@ -21,11 +21,12 @@ class PostsController < ApplicationController
 
       if params[:postcategory].blank?
       #@posts = Post.all.order("created_at DESC")
-       @posts = Post.paginate(:page => params[:page]).order("created_at DESC") # replaces Post.all
+       @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC") # replaces Post.all
+
 
     else
       @postcategory_id = Postcategory.find_by(name: params[:postcategory]).id
-      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page])
+      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
       
     end
 

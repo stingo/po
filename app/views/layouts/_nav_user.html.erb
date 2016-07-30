@@ -36,6 +36,7 @@
      
         
         <% Postcategory.all.each do |postcategory| %>
+        
         <li><%=  link_to postcategory.name, posts_path(postcategory: postcategory.name) %></li>
         
      
