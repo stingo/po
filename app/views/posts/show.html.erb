@@ -111,7 +111,14 @@
         <small>
 
        <strong><i class="fa fa-eye fa-2x ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
-       </small>   
+       </small>  
+
+       &nbsp; &nbsp; 
+
+        <small>
+
+       <strong><%= link_to 'Back', posts_path %></strong>
+       </small>  
   
 </div>
 

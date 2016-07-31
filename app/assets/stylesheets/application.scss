@@ -57,7 +57,7 @@
 @import "preachout_vid_bg/typography/style4";
 
 body {
-    background-color: rgba(212, 216, 212, 0.25);
+    background-color: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) !important; 
 }
 
 .bgblack {background-color: #000000;
