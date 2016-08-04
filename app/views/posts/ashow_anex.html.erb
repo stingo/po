@@ -16,10 +16,54 @@
           <% end %> 
         </div>
 
+<%= @post.content.first(5) %> 
+
+
+        <% if @post.content.length > 200 %>
 
         <div class="lead preach-content box-hover" style="color:#000000;">
+
+        <%= @post.content.truncate(200) %> </div>
+
+
+<!-- post content -->
+
+  
+
+         <div class="panel-group pullupleft" id="more">
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">
+
+                      <a data-toggle="collapse" data-parent="#more" href="#collapseMore">
+                        <i class=" "></i> More </a>
+
+                    </h3><!-- /panel-title -->
+                  </div><!-- /panel-heading -->
+                  <div id="collapseMore" class="panel-collapse collapse">
+                    <div class="panel-body">
+    
+                      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                      <div class="lead preach-content box-hover" style="color:#000000;">
              <%= @post.content %>
          </div>
+              
+                    </div><!-- /panel-body -->
+                  </div><!-- /panel-collapse -->
+                </div><!-- /panel -->
+
+        
+              
+              </div><!-- /panel-group -->
+
+         <% else %>
+
+              <div class="lead preach-content box-hover" style="color:#000000;">
+             <%= @post.content %>
+         </div>
+
+         <% end %> 
+
 
 
 

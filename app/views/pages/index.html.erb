@@ -302,7 +302,12 @@
 
 <div class="lead_small preach-content">
 
-              <%= link_to (post.content), post %>
+              
+
+              
+
+               <%= link_to (truncate(post.content, length: 100, omission: '... (continued)')), post %>
+
 
               </div>
 
