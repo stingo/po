@@ -8,5 +8,5 @@ CarrierWave.configure do |config|
       :region                 => 'us-east-1' # Change this for different AWS region. Default is 'us-east-1'
   }
   config.fog_directory  = "xx"
-endxx
+end
 
