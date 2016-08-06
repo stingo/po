@@ -13,9 +13,17 @@ class ApplicationController < ActionController::Base
   protected 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:displayname, :email, :password, :password_confirmation, :remember_me, :firstname, :lastname) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :displayname, :email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:displayname, :email, :password, :password_confirmation, :current_password, :firstname, :lastname, :city, :country, :bio, :userphoto, :usercover) }
+    devise_parameter_sanitizer.permit(:sign_up) do |user_params|
+    user_params.permit(:displayname, :email, :password, :password_confirmation, :remember_me, :firstname, :lastname)
+  end
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user_params|
+    user_params.permit(:login, :displayname, :email, :password, :remember_me)
+  end
+
+  devise_parameter_sanitizer.permit(:account_update) do |user_params|
+    user_params.permit(:displayname, :email, :password, :password_confirmation, :current_password, :firstname, :lastname, :city, :country, :bio, :userphoto, :usercover)
+  end
   end
 
 require 'carrierwave'

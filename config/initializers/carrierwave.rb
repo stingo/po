@@ -1,12 +1,13 @@
 
 CarrierWave.configure do |config|
   config.fog_credentials = {
-      :provider               => 'AWS',
-      :aws_access_key_id      => "xx",
-      :aws_secret_access_key  => "xx",
-      :host                   => "s3-eu-west-1.amazonaws.com",
-      :region                 => 'us-east-1' # Change this for different AWS region. Default is 'us-east-1'
+    :provider               => 'AWS', 
+    :aws_access_key_id      => 'AKIAIYWRBWFLUKNCYKUA', 
+    :aws_secret_access_key  => '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', 
+    #:region                 => 'us-east-1'
   }
-  config.fog_directory  = "xx"
+  config.fog_directory  = 'preacherspout'
+  config.fog_public     = false 
+  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
+  config.storage = :fog
 end
-
