@@ -1,0 +1,55 @@
+<h3 class="comments_title">
+  
+
+  <i class="fa fa-comment fa" style="color:#337ab7"></i><%= @post.postcomments.size %> <%= "Comment".pluralize(@post.postcomments.count) %> 
+
+  
+
+  <div class="progress progress-xs">
+                        <div class="progress-bar bg-grd-red" style="width:28%"></div>
+                      </div>
+
+               
+
+                    
+</h3>
+
+
+
+<% if current_user.present? %> <!--validate the presence of user-->
+
+<%= form_for [@post, Postcomment.new] do |f| %>
+
+  <div class="field ">
+     <%= f.text_area :body, :autofocus => true, :placeholder => 'write comment...', :class => "form-control" %>
+  </div>
+
+ 
+  <h5><%= f.submit "Post", :class => "btn btn-primary" %></h5>
+ 
+
+<% end %>
+
+<% else %>
+<a href="/users/sign_in"><strong>Sign in</strong> <span class="text-muted">to join the discussion.</span></a>
+<% end %>
+
+<br>
+
+
+
+
+
+
+
+
+<div id="postcomments">
+  <%= render :partial => @post.postcomments.reverse %>
+</div>
+
+<br />
+
+
+
+
+

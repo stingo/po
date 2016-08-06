@@ -1,0 +1,51 @@
+<% if user_signed_in? && current_user.likes?(post) %>
+  <%= link_to "", post_like_path(post), method: :delete, remote: true, :class=>"fa fa-heart rediconcolor" %>
+<% elsif !user_signed_in?
+	 %>
+  
+ 
+
+  <div class="dropdown">
+
+        <span class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+       <large><%= link_to "", post_like_path(post), method: :post, remote: true,  :class=>"fa fa-heart-o rediconcolor" %></large>
+
+        </span>
+                          <ul class="dropdown-menu dropdown-menu-right pullup-small">
+                           
+
+
+
+
+                            <li><a href="/users/sign_in">Sign in to heart this</a></li>
+                             
+
+
+                            
+                          </ul>
+
+  </div>
+
+
+<% else %>
+
+
+<large><%= link_to "", post_like_path(post), method: :post, remote: true,  :class=>"fa fa-heart-o rediconcolor" %></large>
+
+
+
+<% end %>
+<br>
+<strong><%= post.likes.count %></strong>
+
+<%# post.likes.each do |like| %>
+  <%# image_tag like.user.avatar_url, width: 20 %>
+<%# end %>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>

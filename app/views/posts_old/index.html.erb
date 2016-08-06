@@ -6,8 +6,6 @@
         <%= render '/components/post_form' %><br><br>
         </div>
 
-      
-
        <!--MIDDLE STARTS-->
 
 
@@ -16,8 +14,6 @@
 <br />
 
 <div class= "container">
-
-
      
         <%= link_to "All Posts", root_path %>
        <% Postcategory.all.each do |postcategory| %>
@@ -40,10 +36,7 @@
 
 <!--posts starts-->
  <div class="fieldfix centered">
-  
-  <% if @posts.count == 0 %>
-  <h3>There are no Posts in this category</h3>
-<% else %>  
+   
 
           <div id="rowp" class="transitions-enabled">
           <% @posts.each do |post| %>
@@ -58,15 +51,13 @@
   
 
 
-<%# console %>
+
 
  </div>
 
            
         </div><!-- panel -->
         <% end %>
-         
-         <% end %>
           </div>
         
 

@@ -21,13 +21,11 @@ class PostsController < ApplicationController
 
       if params[:postcategory].blank?
       #@posts = Post.all.order("created_at DESC")
-       @posts = Post.paginate(:page => params[:page], :per_page => 10).order("created_at DESC") # replaces Post.all
-
+       @posts = Post.paginate(:page => params[:page]).order("created_at DESC") # replaces Post.all
 
     else
       @postcategory_id = Postcategory.find_by(name: params[:postcategory]).id
-      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-      
+      @posts = Post.where(postcategory_id: @postcategory_id).order("created_at DESC").paginate(:page => params[:page])
     end
 
 
@@ -45,38 +43,25 @@ class PostsController < ApplicationController
 
 
     def new 
-        @post = current_user.post.build
-        #@post = Post.new
+        @post = current_user.posts.build
         @postcategories = Postcategory.all.map{ |c| [c.name, c.id] }
-
-
-      
-end
-  
+    end
     
     def create
-       
-     @post = current_user.posts.build(post_params)
-        #@post = Post.new(post_params)
-        #@post.postcategory_id = params[:postcategory_id]
- 
-       
+        @post = Post.new(post_params)
+        @post.user_id = current_user.id # assign the post to the user who created it.
+        
+        @post.postcategory_id = params[:postcategory_id]
+
+
         respond_to do |f|
-            if @post.save 
+            if (@post.save) 
                 f.html { redirect_to posts_path, notice: "Post created!" }
             else
                 f.html { redirect_to posts_path, notice: "Error: Couldn't create post with no text." }
             end
         end
     end
-
-
-
-
-
-
-
-
 
     def show
     	impressionist(@post)
@@ -91,7 +76,7 @@ end
     end
 
  def destroy
- @post = Post.find(params[:id])
+ post = Post.find(params[:id])
 
 
  @post.destroy
@@ -121,7 +106,7 @@ end
 
 def edit
 
-    #@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @postcategories = Postcategory.all.map{ |c| [c.name, c.id] }
     
 
@@ -129,12 +114,11 @@ def edit
   end
 
    def update
+    @post = Post.find(params[:id])
 
     @post.postcategory_id = params[:postcategory_id]
 
 
-
-    
   
     
     if @post.update_attributes(post_params)
@@ -174,7 +158,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_name, :postcategory_id)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id)
         
     end
 

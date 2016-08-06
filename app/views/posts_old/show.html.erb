@@ -7,7 +7,7 @@
 <div class="col-md-5">
 <div class="paneloveride" style="height:100%;" >
       
-      <!-- illustration of  img -->
+      <!-- illustration of product img -->
       <div class="text-center" style="padding:0px;line-height:20px;font-size:14px;">
 
         <div class="preach-img pushnav2 zindez222">
@@ -20,9 +20,6 @@
         <div class="lead preach-content box-hover" style="color:#000000;">
              <%= @post.content %>
          </div>
-
-
-
 
 
   <div class="embed-extend-item">
@@ -55,8 +52,7 @@
 
 <br>
 
-
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%= link_to @post.postcategory.name, posts_path(postcategory: @post.postcategory.name) if @post.postcategory_id %> </strong>
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%#  link_to @post.postcategory.name, posts_path(postcategory: @post.postcategory.name) %></strong>
 
 
 
@@ -114,14 +110,7 @@
         <small>
 
        <strong><i class="fa fa-eye fa-2x ">&nbsp </i><%= @post.impressionist_count(:filter=>:session_hash) %></strong>
-       </small>  
-
-       &nbsp; &nbsp; 
-
-        <small>
-
-       <strong><%= link_to 'Back', posts_path %></strong>
-       </small>  
+       </small>   
   
 </div>
 

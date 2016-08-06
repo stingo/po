@@ -73,15 +73,8 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', Helvetica Neue, Sans-serif;
-	font-size: 16px;
-	line-height: 28px;
-	font-weight: 300;
-	color: #313131;
-	text-align: center;
-	overflow-x: hidden !important;
-	margin: auto !important;
-}
+	background: rgba(0, 0, 0, 0) linear-gradient(40deg, #d1edf0 10%, #ecc8c6 100%) repeat scroll 0 0;
+    font-family: "Lato",sans-serif;}
 
 /*---------------------------------------
    1.2 PRE-LOADER              
@@ -502,6 +495,7 @@ strong,
 }
 
 .header .overlay-layer {
+	margin-top: -29px;
 	padding-top: 84px;
 	padding-bottom: 175px;
 	height: auto;

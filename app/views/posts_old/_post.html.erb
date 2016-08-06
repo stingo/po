@@ -24,7 +24,7 @@
 
 <div class="lead_small preach-content box-hover">
 
-              <%= link_to (post.content.truncate(100)), post %>
+              <%= link_to (post.content), post %>
 
               </div>
 
@@ -37,7 +37,8 @@
 
         <div class="embed-extend-item">
 
-       
+         <%# image_tag("dummy/uifaces11.jpg", class: "kit-avatar kit-avatar-96 border-white pull-left") %>
+         <%#link_to (image_tag song.user.profilephoto.url(:small), :class => "kit-avatar kit-avatar-96 border-white pull-left"), @user %>
 
 
           <!--Profilephoto-->
@@ -78,21 +79,12 @@
 
 <br>
 
+<% Postcategory.all.each do |postcategory| %>
 
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"><%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) %></strong>
 
-
-
-
-
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) if post.postcategory_id %> </strong>
-
-<%# link_to Postcategory.find(post.postcategory_id).name, postcategory_path(post.postcategory_id) %>
-
-
-
-
+<% end %>
 </div>
-
 
 <!--end-->
 

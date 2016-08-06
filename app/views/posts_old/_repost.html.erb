@@ -1,0 +1,4 @@
+<div>
+  <div>Reposted by <%= post.user.email %></div>
+  <%= render partial: "posts/post", locals: {post: post.post} %>
+</div>
