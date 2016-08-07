@@ -26,6 +26,5 @@ class ApplicationController < ActionController::Base
   end
   end
 
-require 'carrierwave'
-require 'carrierwave/orm/activerecord'
+
 end
