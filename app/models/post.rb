@@ -34,7 +34,7 @@ validates :postcover, presence: true, unless: ->(post){post.content.present?}
   #rescue
     #true
   #end
-  before_update :postcover, visible: false
+ 
 
 
 
