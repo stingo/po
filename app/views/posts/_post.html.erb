@@ -9,12 +9,21 @@
 
 
           <div class="preach-img">
+
+          
+
               <% if post.postcover? %>
         <%=link_to (image_tag post.postcover.url(:thumb), :class => "img-responsive centered box-hover preachedge-img"), post %>
        
 
 
           <% end %> 
+
+          <%if post.audiotitle %>
+
+<%= link_to image_tag("play.png", :class => "prch-overlay"), post %>
+
+<% end %>
 
 
               </div>
@@ -24,7 +33,7 @@
 
 <div class="lead_small preach-content box-hover">
 
-              <%= link_to (post.content.truncate(100)), post %>
+              <%= link_to (post.content.truncate(100)), post if post.content %>
 
               </div>
 
@@ -84,7 +93,7 @@
 
 
 
-<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) if post.postcategory_id %> </strong>
+<strong class="text-muted pull-left closebtn-categories prch-blue"> <%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) if post.postcategory_id %> </strong>
 
 <%# link_to Postcategory.find(post.postcategory_id).name, postcategory_path(post.postcategory_id) %>
 

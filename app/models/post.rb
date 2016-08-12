@@ -19,6 +19,7 @@ validates :postcover, presence: true, unless: ->(post){post.content.present?}
   #validates :content, presence: true, length: { maximum: 240 } || :postcover, presence: true # posts are capped at 240 chars.\
 
   mount_uploader :postcover, PostcoverUploader
+  mount_uploader :sound, SoundUploader
 
   after_commit :remove_postcover!, on: :destroy
   #after_commit :delete_empty_dirs!, on: :destroy
@@ -33,6 +34,7 @@ validates :postcover, presence: true, unless: ->(post){post.content.present?}
   #rescue
     #true
   #end
+  before_update :postcover, visible: false
 
 
 

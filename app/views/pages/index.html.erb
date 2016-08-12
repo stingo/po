@@ -77,7 +77,7 @@
     <!-- =========================
      PRE LOADER       
     ============================== -->
-    <div class="preloader">
+    <!--div class="preloader">
         <div class="status">
             &nbsp;
         </div>
@@ -306,7 +306,7 @@
 
               
 
-               <%= link_to (truncate(post.content, length: 100, omission: '... (continued)')), post %>
+               <%= link_to (truncate(post.content, length: 100, omission: '... (continued)')), post if post.content %>
 
 
               </div>
@@ -343,9 +343,65 @@
 
 
 
+          <%if post.audiotitle %>
 
+<%= link_to image_tag("play.png", :class => "prch-overlay"), post %>
+
+<% end %>
               
 
+
+<!--Get category name for each post-->
+    
+<div class="pull-left">
+
+
+
+
+
+       <small class="media-heading gapleft"><i class="fa fa-upload "></i> 
+       <%= " " %><%= link_to (post.user.firstname.split(" ").map(&:capitalize).join(" ")), user_path(post.user_id) if post.user.firstname %>
+
+         <%= " " %><%= link_to (post.user.lastname.split(" ").map(&:capitalize).join(" ")), user_path(post.user_id) if post.user.lastname %>
+        </small>
+
+
+
+<br>
+
+
+
+
+
+
+
+<strong class="text-muted pull-left closebtn-categories" style="color: #000000;"> <%= link_to post.postcategory.name, posts_path(postcategory: post.postcategory.name) if post.postcategory_id %> </strong>
+
+<%# link_to Postcategory.find(post.postcategory_id).name, postcategory_path(post.postcategory_id) %>
+
+
+
+
+</div>
+
+
+<!--end-->
+
+
+
+
+
+
+
+ 
+        
+
+
+
+
+                  <%#post preach.title if preach.title %>
+        
+        
 
 
 
@@ -373,18 +429,18 @@
 
                     <div class="col-sm-3 bordered-right">
                        <h5 class="text-center"> <a href:"#">
-                       <i class="fa fa-eye fa-2x" style="color:#337ab7"></i></a>
+                       <i class="fa fa-eye" style="color:#337ab7"></i></a>
                        <br><strong><%= post.impressionist_count(:filter=>:session_hash) %></strong></h5>
                     </div><!-- /.cols -->
 
                     <div class="col-xs-3 bordered-right">
-                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment fa-2x" style="color:#337ab7"></i><% end %></a>
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-comment" style="color:#337ab7"></i><% end %></a>
                     <br><strong><%= post.postcomments.count %></strong></h5>
 
                     </div><!-- /.cols -->
 
                     <div class="col-xs-3">
-                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-heart-o fa-2x" style="color:#ff0000"></i><% end %></a>
+                      <h5 class="text-center"> <a href:"#"> <%= link_to post do %><i class="fa fa-heart-o" style="color:#ff0000"></i><% end %></a>
                     <br><strong><%= post.likes.count %></strong></h5>
 
                     </div><!-- /.cols -->
@@ -476,93 +532,136 @@
         
     </section>
 
+
+
+
+
+
+
+  <!-- =========================
+     SECTION: SCREENSHOTS
+    ============================== -->
+    <section class="features" id="section7" data-stellar-background-ratio="0.5">
+        <div class="overlay-layer-2">
+            <div class="container">
+
+                <!-- SECTION HEADER -->
+                <div class="section-header">
+                   
+                    <h2 class="white-text"><span class="strong colored-text">There’s more to do on PreachOut </span></h2>
+                    <div class="white-line">
+                    </div>
+                   
+                </div>
+
+                <div class="row">
+
+                    <!-- LEFT SIDE ELEMENTS -->
+                    <div class="col-md-3 text-right left-side wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
+
+                        <!-- SINGLE ELEMENT -->
+                        <div class="single-feature border-right-colored">
+                        <i class="fa fa-cogs fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
+
+                        
+                            <h4 class="colored-text">Cross functional</h4>
+                            <p class="transparent-text">
+                                Easy to share your message by text, image or audio
+                            </p>
+                        </div>
+
+                        <!-- SINGLE ELEMENT -->
+                        <div class="single-feature border-right-colored">
+                        <i class="fa fa-users fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
+                            <h4 class="colored-text">Get Connected</h4>
+                            <p class="transparent-text">
+                                Meet and connect to people with a common faith
+                            </p>
+                        </div>
+
+                       
+
+                    </div>
+
+                    <!-- SCREENSHOTS -->
+                    <div class="col-md-6">
+                        <div id="screenshots" class="owl-carousel owl-theme">
+
+                            <!-- SINGLE SCREENSHOT -->
+                             
+
+                       
+                      
+                      
+
+                        <h4 class="lead white-text wow fadeInLeft frontsize" data-wow-duration="2s" data-wow-offset="40">Discover how a new piece of message can ignite your passion again.</h4>
+                        <br />
+                        <p></p>
+
+                        <a href="#home" class="btn btn-success mb-1x mr-1x inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Continue</a>
+                        <br />
+                        <p></p>
+
+                        <a href="/users/sign_in" class="btn btn-primary inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Sign In</a>
+
+
+                            
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT SIDE FEATURES -->
+                    <div class="col-md-3 text-left right-side wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
+
+                        <!-- SINGLE ELEMENT -->
+                        <div class="single-feature border-left-colored">
+                        <i class="fa fa-commenting fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
+                            <h4 class="colored-text">Simply Interactive</h4>
+                            <p class="transparent-text">
+                                Add edit or delete own comments from existing posts. 
+                            </p>
+                        </div>
+
+                        <!-- SINGLE ELEMENT -->
+                         <!-- SINGLE ELEMENT -->
+                        <div class="single-feature border-left-colored">
+                        <i class="fa fa-volume-up fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
+                            <h4 class="colored-text">Music & Sermons</h4>
+                            <p class="transparent-text">
+                                An outstanding tools for sharing gospel music and sermon
+                            </p>
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- =========================
      SECTION: BRIEF LEFT
     ============================== -->
-    <section class="services grey-bg" id="section1">
-        <div class="container">
-
-            <!-- SECTION HEADER -->
-            <div class="section-header">
-
-               
-
-            <div class="row">
-
-                <!-- SINGLE SERVICE -->
-
-                <div class="g-group">
-<div class="g-cell g-cell-12-12 text--centered">
-<h3 class="marketing-text-heading-primary">PreachOut provides out of the box tools you need to share the inpiration.</h3>
-<br>
-
-</div>
-</div>
-
-                <div class="col-md-4 wow fadeInLeft" data-wow-offset="10" data-wow-duration="1.75s">
-
-
-                    <div class="single-service pr-reduce20 bg-teal">
-                       <br>
-
-                        <i class="fa fa-share-alt fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
-<br/>
-
-
-                        <h3 class="colored-text">PreachOut</h3>
-                        <div class="colored-line">
-                </div>
-                <br>
-                        <p style="color: #ffffff;">
-                            Explore, post or share inspiational messages by a text or an image. It is fast and easy.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- SINGLE SERVICE -->
-                <div class="col-md-4 wow flipInY" data-wow-offset="10" data-wow-duration="1s">
-                    <div class="single-service  pr-reduce20 bg-grd-teal">
-                       <br>
-
-
-                           
-                        
-                        <i class="fa fa-users fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
-                        
-                        <h3 class="colored-text">Get Connected</h3>
-                           <div class="colored-line">
-                </div><br>
-                        <p style="color: #ffffff;">
-                            Out of the box platform to meet and connect to people with a common faith. Get started, it's free
-                        </p>
-                    </div>
-                </div>
-
-                <!-- SINGLE SERVICE -->
-                <div class="col-md-4 wow fadeInRight" data-wow-offset="10" data-wow-duration="1.75s">
-                    <div class="single-service bg-teal pr-reduce20">
-                        <br>
-
-                        <i class="fa fa-commenting fa-4x" style="color: #ffffff;" aria-hidden="true"></i>
-                        <h3 class="colored-text">Simply Interactive</h3>
-                        <div class="colored-line">
-                </div><br>
-                         <p style="color: #ffffff;">
-                            Ability to provide feedback or comments to an existing post. You can also edit or delete own comments.
-                        </p>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-
-
-
-
-        
-    </section>
+    
     <!-- =========================
      SECTION: SOME STATS   
     ============================== -->
@@ -622,36 +721,7 @@
     <!-- =========================
      SECTION: CALL TO ACTION   
     ============================== -->
-    <section class="call-to-action" id="section11" data-stellar-background-ratio="0.1">
-        <div class="overlay-layer-2">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-8 col-md-offset-2">
-
-                        <div class="uppercase colored-text strong">
-                            <h2>There’s more to do on PreachOut</h2>
-                        </div>
-                      
-                      
-
-                        <h4 class="lead white-text wow fadeInLeft frontsize" data-wow-duration="2s" data-wow-offset="40">Discover how a new piece of word can ignite your passion again.</h4>
-                        <br />
-                        <p></p>
-
-                        <a href="#home" class="btn btn-success mb-1x mr-1x inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Continue</a>
-                        <br />
-                        <p></p>
-
-                        <a href="/users/sign_in" class="btn btn-primary inpage-scroll wow fadeInRight bottomwidth" data-wow-duration="2s" data-wow-offset="40" type="button">Sign In</a>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
+    
 
 
     <!-- REGISTRATION FORM FOR POPUP BOX -->
@@ -676,12 +746,12 @@
     ============================== -->
    
     <script>
-        /* PRE LOADER */
+        /* PRE LOADER
         jQuery(window).load(function () {
             "use strict";
             jQuery(".status").fadeOut();
             jQuery(".preloader").delay(0).fadeOut("slow");
-        })
+        }) */
 
         $("a[href='#bottom']").click(function() {
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");

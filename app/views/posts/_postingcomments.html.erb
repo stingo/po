@@ -21,7 +21,7 @@
 <%= form_for [@post, Postcomment.new] do |f| %>
 
   <div class="field ">
-     <%= f.text_area :body, :autofocus => true, :placeholder => 'write comment...', :class => "form-control" %>
+     <%= f.text_area :body, :autofocus => true, :placeholder => 'Say something nice...', :class => "form-control" %>
   </div>
 
  
@@ -31,7 +31,7 @@
 <% end %>
 
 <% else %>
-<a href="/users/sign_in"><strong>Sign in</strong> <span class="text-muted">to join the discussion.</span></a>
+<a href="/users/sign_in"><strong class="prch-green">Sign in</strong> <span class="text-muted">to join the discussion.</span></a>
 <% end %>
 
 <br>

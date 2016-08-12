@@ -1,0 +1,58 @@
+<div class="col-sm-11">
+        <%= simple_form_for [@newPost] do |f| %>
+
+
+
+
+        
+              <div class="field" style="margin-left: 10px;">
+
+              <div class="col-sm-12">
+
+              <li> 
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "control-label" } %>
+
+
+
+ </li>
+                <%= f.text_field :audiotitle, autofocus: true, :placeholder => 'Song title', class: "form-control" %>
+                
+
+
+                <p></p>
+               
+               
+                <div class="field">
+                <%= f.label :add_audio %><br>
+                <%= f.file_field :sound %>
+              </div>
+
+                
+
+                <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "PreachOut", class: "btn btn-primary" %></span>
+
+                <ul class="nav nav-pills">
+                                <li>
+
+                                 <%= f.label :add_audio_cover %><br>
+
+                                
+                &nbsp&nbsp&nbsp<%= f.file_field :postcover, class: "small pullupform"%>
+                                  
+
+                                </li>
+
+
+                                
+                                
+              </ul><!-- /.nav nav-pills -->
+
+             
+
+              
+              </div>
+              </div>
+          
+        <% end %>
+      </div>

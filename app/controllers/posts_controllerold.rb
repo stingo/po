@@ -103,6 +103,7 @@ def edit
 
     @post = Post.find(params[:id])
     
+    
 
 
   end
@@ -148,7 +149,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_id, :audio, :audiotitle, :lyrics, :artist)
         
     end
 

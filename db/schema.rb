@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718060936) do
+ActiveRecord::Schema.define(version: 20160807190311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,17 @@ ActiveRecord::Schema.define(version: 20160718060936) do
     t.integer  "post_id"
     t.integer  "postcategory_id"
     t.string   "postcategory_name"
+    t.string   "audio"
+    t.string   "audiotitle"
+    t.text     "lyrics"
+    t.date     "date_released"
+    t.string   "artist"
+    t.string   "sound"
   end
 
+  add_index "posts", ["artist"], name: "index_posts_on_artist", using: :btree
+  add_index "posts", ["audiotitle"], name: "index_posts_on_audiotitle", using: :btree
+  add_index "posts", ["lyrics"], name: "index_posts_on_lyrics", using: :btree
   add_index "posts", ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 

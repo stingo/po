@@ -1,0 +1,279 @@
+
+<style>
+
+form .counter{
+	
+	font-size:13px;
+
+	color:#ccc;
+	}
+form .warning{color:#600;}	
+form .exceeded{color:#ff0000;}	
+
+</style>
+
+<% if user_signed_in? %>
+
+
+
+  <div class="panel panel-default post-form-panel centered prch-50">
+    <div class="panel-body centered">
+      
+      <div class="col-sm-2">
+        <% if current_user.userphoto? %>
+            <%=link_to (image_tag current_user.userphoto.url(:small), :class => " kit-avatar kit-avatar-32 no-border rounded-img thumb35 centered"), user_path(current_user.id) %>
+            <% else %> 
+            <%=link_to (image_tag("noimage.jpg", :class => "kit-avatar kit-avatar-32 no-border rounded-img thumb35 centered")), user_path(current_user.id)%></a></li>
+
+       <% end %> 
+      </div>
+     
+
+
+
+
+
+
+      <div class="col-sm-8 centered">
+
+
+        
+        
+              <div class="field" style="margin-left: 0px;">
+
+
+
+              
+
+                <ul class="nav nav-pills" style="color: #ffffff;">
+                               <li class="btn bg-grd-yellow preachicon1" title="Text" data-toggle="modal" data-target="#preach"><i class="fa fa-commenting-o  fa-2x"></i> </li>
+
+                                <li class="btn bg-grd-teal preachicon1" title="Music" data-toggle="modal" data-target="#audio"><i class="fa fa-music fa-2x"></i> </li>
+
+                               
+                                <!--li class="btn bg-grd-red preachicon1" title="Video" data-toggle="modal" data-target="#video"><i class="fa fa-file-video-o fa-2x"></i> </li>
+
+                               
+
+                                <li class="btn bg-grd-yellow preachicon1" title="Sermon" data-toggle="modal" data-target="#sermon"><i class="fa fa-plus-square fa-2x"></i> </li-->
+                                
+              </ul><!-- /.nav nav-pills -->
+
+             
+
+              
+              </div>
+          
+       
+      </div>
+
+
+
+
+
+
+
+
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+<!--Prost Modal-->
+
+<div class="modal fade zindez999" id="preach" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+            <div class="modal-dialog zindez999">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+
+                 
+
+
+
+
+
+      <div class="col-sm-11">
+        <%= simple_form_for [@newPost] do |f| %>
+
+
+
+
+        
+              <div class="field" style="margin-left: 10px;">
+
+              <div class="col-sm-12">
+                <%= f.text_area :content, autofocus: true, placeholder: "What's inspirational?...add a text up to 240 words, image or both", class: "form-control has-success" %>
+                </div>
+
+                
+
+                <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "PreachOut", class: "btn btn-primary" %></span>
+
+                <ul class="nav nav-pills">
+                                <li>
+
+                                
+                &nbsp&nbsp&nbsp<%= f.file_field :postcover, class: "small pullupform"%>
+                                  
+
+                                </li>
+
+
+                                <li> 
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "control-label" } %>
+
+
+
+ </li>
+                                
+              </ul><!-- /.nav nav-pills -->
+
+             
+
+              
+              </div>
+          
+        <% end %>
+      </div>
+
+
+
+
+
+
+
+
+
+
+                  <p></p>
+                
+
+                </div>
+                  <p></p>
+                    <p></p>
+                <div class="modal-footer">
+                 
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+<!--Song modal-->
+
+
+
+
+
+
+<div class="modal fade zindez999" id="audio" tabindex="-1" role="dialog" aria-labelledby="modalBasicLabel" aria-hidden="true">
+            <div class="modal-dialog zindez999">
+              <div class="modal-content">
+                <div class="modal-header">
+                 <i class="fa fa-file-music-o fa-2x"></i>
+                  <h4 class="modal-title" id="modalBasicLabel">Uploading Audio</h4>
+                </div>
+                <div class="modal-body">
+
+                 
+
+
+
+
+
+      
+        <%= simple_form_for [@newPost] do |f| %>
+
+
+
+
+        
+              <div class="field" style="margin-left: 10px;">
+
+              <div class="col-sm-12">
+
+              <li> 
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "control-label" } %>
+
+
+
+ </li>
+                <%= f.text_field :audiotitle, autofocus: true, :placeholder => 'Audio title', class: "form-control" %>
+
+                <br >
+
+                <%= f.text_field :artist, autofocus: true, :placeholder => 'Name of artist or preacher', class: "form-control" %>
+                
+
+
+                <p></p>
+               
+               
+                <div class="field">
+                <%= f.label :add_audio %><br>
+                <%= f.file_field :sound %>
+              </div>
+
+                
+
+                <span type="button" class="btn btn-submit" style="float: right; margin-top: 3px;"><%= f.submit "PreachOut", class: "btn btn-primary" %></span>
+
+                <ul class="nav nav-pills">
+                                <li>
+
+                                 <%= f.label :add_audio_cover %><br>
+
+                                
+                &nbsp&nbsp&nbsp<%= f.file_field :postcover, class: "small pullupform"%>
+                                  
+
+                                </li>
+
+
+                                
+                                
+              </ul><!-- /.nav nav-pills -->
+
+             
+
+              
+             
+              </div>
+          
+        <% end %>
+      </div>
+
+
+
+
+
+
+
+
+
+
+                  <p></p>
+                
+
+                </div>
+                  <p></p>
+                    <p></p>
+                <div class="modal-footer">
+                 
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+<!--Song modal-->
+
+
+

@@ -1,0 +1,131 @@
+
+
+
+
+
+  
+
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+
+
+
+  <title>Editing Post</title>
+
+
+ 
+
+  <!-- build:css(.tmp) styles/bootstrap.css -->
+ 
+
+
+  <!--[if lt IE 9]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <main class="signin-wrapper">
+    
+
+
+   
+        
+     
+      <div class="tab-pane fade in active" id="signin">
+        <form id="signinForm" action="index.html" role="form">
+         
+          
+          <!--div class="form-group">
+            <div class="input-group input-group-in">
+              <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+              <%# f.label :email %>
+             
+            
+            <%# f.label :displayname %>
+
+            <%# f.text_field :displayname, :class => "form-control" %><br>
+    
+              
+            </div>
+          </div><!/.form-group -->
+
+           <div class="field"> 
+           <%= f.label :category %><br>
+
+<%= f.collection_select :postcategory_id, Postcategory.all, :id, :name, {prompt: "Select a category" }, input_html: { class: "dropdown-toggle" } %>
+ </div>
+
+ <br>
+
+
+
+    <%= f.text_field :audiotitle, autofocus: true, :placeholder => 'Song title', class: "form-control" %>
+
+    <br>
+
+    <%= f.text_field :artist, autofocus: true, :placeholder => 'Artist or Preacher name', class: "form-control" %>  
+
+
+    <div class="field">
+                <%= f.label :change_audio %><br>
+                <%= f.file_field :sound %>
+              </div> 
+
+
+            
+
+  
+
+<br>
+
+          
+         
+<div class="field">
+    <%= f.label :change_image %><br>
+    <%= f.file_field :postcover %>
+    <% if f.object.postcover? %>
+      <%= image_tag f.object.postcover.thumb.url %>
+      <%= f.label :remove_image, :class => "lead"  %>
+      <%= f.check_box :remove_postcover %> 
+    <% end %>
+  </div>
+          
+  <br>
+         
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+     
+          </div><!-- /.form-group -->
+
+
+
+
+         
+<br>
+
+
+
+
+
+
+
+          
+
+
+
+

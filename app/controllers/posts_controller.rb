@@ -63,9 +63,9 @@ end
        
         respond_to do |f|
             if @post.save 
-                f.html { redirect_to posts_path, notice: "Post created!" }
+                f.html { redirect_to posts_path, notice: "Post created" }
             else
-                f.html { redirect_to posts_path, notice: "Error: Couldn't create post with no text." }
+                f.html { redirect_to posts_path, notice: "Error: Couldn't PreachOut without a content." }
             end
         end
     end
@@ -139,7 +139,7 @@ def edit
     
     if @post.update_attributes(post_params)
 
-        flash[:notice] = "Post succesfully updated!"
+        flash[:notice] = "Succesfully updated!"
         redirect_to post_path
       # Handle a successful update.
     else
@@ -174,7 +174,7 @@ def edit
 end
 
     def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_name, :postcategory_id)
+        params.require(:post).permit(:user_id, :post_id, :content, :postcover, :remove_postcover, :postcategory_name, :postcategory_id, :audio, :audiotitle, :lyrics, :artist, :sound)
         
     end
 
