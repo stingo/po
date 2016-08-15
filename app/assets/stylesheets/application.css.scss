@@ -16,6 +16,7 @@
  */
 
 @import "normalize";
+@import "_normalize";
 @import "bootstrap-sprockets";
 @import "font-awesome";
 @import "wk/gootstrap";
@@ -51,6 +52,7 @@
 @import "preachout_vid_bg/bootstrap.min";
 @import "preachout_vid_bg/nivo-lightbox";
 @import "preachout_vid_bg/owl.theme";
+@import "preachout_vid_bg/responsive";
 @import "preachout_vid_bg/colors/blue";
 @import "preachout_vid_bg/typography/style1";
 @import "preachout_vid_bg/typography/style2";
